@@ -1,0 +1,89 @@
+body {
+    background-color: #1e1e1e; /* Fond noir */
+    color: #dcdcdc; /* Couleur du texte */
+    font-family: 'Courier New', Courier, monospace; /* Police de caractères */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    height: 100vh; /* Hauteur de la vue */
+}
+
+.window-container {
+    background-color: #070707; /* Couleur de fond de la fenêtre */
+    border-radius: 10px; /* Arrondi des coins */
+    width: 100%; /* Augmenter la largeur de la fenêtre */
+    max-width: 1850px; /* Largeur maximale pour la fenêtre */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ombre */
+    overflow: hidden; /* Cacher le débordement */
+    position: relative; /* Position relative pour le positionnement des boutons */
+}
+
+.title-bar {
+    background-color: #504f4f; /* Couleur de la barre de titre */
+    padding: 10px; /* Espacement interne */
+    display: flex; /* Affichage flex pour les boutons */
+    align-items: center; /* Aligner verticalement */
+}
+
+.buttons {
+    display: flex; /* Afficher les boutons en ligne */
+    margin-right: auto; /* Pousser les boutons vers la gauche */
+}
+
+.button {
+    width: 15px; /* Largeur des boutons */
+    height: 15px; /* Hauteur des boutons */
+    border-radius: 50%; /* Arrondi des boutons */
+    margin: 0 5px; /* Espacement entre les boutons */
+}
+
+.close {
+    background-color: #ff605c; /* Rouge */
+}
+
+.minimize {
+    background-color: #ffbd44; /* Jaune */
+}
+
+.maximize {
+    background-color: #00ca4e; /* Vert */
+}
+
+.code-window {
+    background-color: #0e0d0d; /* Couleur de fond de la fenêtre de code */
+    padding: 0px; /* Espacement interne */
+    border-radius: 5px; /* Arrondi des coins */
+    max-height: 850px; /* Hauteur maximale pour la fenêtre de code */
+}
+
+.code-line {
+    white-space: pre; /* Préserver les espaces */
+    font-size: 1.2rem; /* Taille de police */
+    padding: 0px; /* Espacement interne pour les lignes de code */
+}
+
+.keyword {
+    color: #4797d8; /* Couleur des mots-clés */
+}
+
+.function-name, .method-name {
+    color: #d3d370; /* Couleur des noms de fonction et de méthode */
+}
+
+.parameter {
+    color: #9cdcfe; /* Couleur des paramètres */
+}
+
+.string {
+    color: #ce9178; /* Couleur des chaînes de caractères */
+}
+
+.class-name {
+    color: #4ec9b0; /* Couleur des noms de classe */
+}
+
+.comment {
+    color: #608b4f; /* Couleur des commentaires */
+}
