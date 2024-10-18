@@ -15,9 +15,12 @@ body {
 }
 
 .window-container {
-    background-color: #070707; /* Couleur de fond de la fenêtre */
+    background-color: rgba(8, 8, 8, 0.8); /* Couleur de fond avec transparence (80% opaque) */
+    /* Vous pouvez aussi essayer un dégradé */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(51, 51, 51, 0.8));
     border-radius: 10px; /* Arrondi des coins */
     width: 200%; /* Augmenter la largeur de la fenêtre */
+    border-radius: 15px;
     max-width: 1850px; /* Largeur maximale pour la fenêtre */
     height: 700px; /* Hauteur fixe pour éviter l'agrandissement */
     box-shadow: 0 0 500px rgba(0, 0, 0, 0.5); /* Ombre */
@@ -27,6 +30,7 @@ body {
     flex-direction: column; /* Empiler verticalement */
     align-items: center; /* Centrer le contenu horizontalement */
 }
+
 
 .title-bar {
     background-color: #5a5959; /* Couleur de la barre de titre */
@@ -44,8 +48,8 @@ body {
 .button {
     width: 15px; /* Largeur des boutons */
     height: 15px; /* Hauteur des boutons */
-    border-radius: 70%; /* Arrondi des boutons */
-    margin: 0 5px; /* Espacement entre les boutons */
+    border-radius: 50%; /* Arrondi des boutons */
+    margin: 0 4px; /* Espacement entre les boutons */
 }
 
 .close { 
@@ -137,22 +141,24 @@ body {
 }
 
 #musicButton {
-    background-color: #a3a3a8; /* Couleur de fond rouge */
+    background-color: #5a5959; /* Couleur de fond grise */
     color: #ffffff; /* Couleur du texte blanc */
     border: none; /* Pas de bordure */
     border-radius: 5px; /* Coins arrondis */
     padding: 10px 20px; /* Espacement intérieur */
     font-size: 16px; /* Taille de la police */
     cursor: pointer; /* Curseur en forme de main */
-    transition: background-color 0.3s, transform 0.2s; /* Animation lors du hover */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Animation lors du hover */
+    position: relative; /* Position relative pour le mouvement */
+    display: inline-block; /* Pour que le bouton ne prenne que l'espace nécessaire */
 }
 
 #musicButton:hover {
     background-color: #ff6b81; /* Couleur de fond au survol */
-    transform: scale(1.10); /* Légère augmentation de taille au survol */
+    transform: translateY(-5px); /* Légère montée au survol */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre pour effet de profondeur */
 }
 
 #musicButton:focus {
     outline: none; /* Supprimer le contour par défaut */
 }
-
