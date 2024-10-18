@@ -1,5 +1,8 @@
 body {
-    background-color: #1f1e1e; /* Fond noir */
+    background-image: url('https://64.media.tumblr.com/09ab9d7984068cf78ff6b82f47c3c3a3/1587ad98646feaa9-cf/s540x810/4e789c685dc3cfbda7272acffca2af7cb92c7c5b.gif');/* Fond noir */
+    background-size: cover; /* Couvre tout l'écran */
+    background-position: center; /* Centre l'image */
+    background-repeat: repeat; /* Évite la répétition de l'image */
     color: #f8f6f6; /* Couleur du texte par défaut */
     font-family: 'Courier New', Courier, monospace; /* Police de caractères */
     font-feature-settings: "smcp", "zero";
@@ -12,7 +15,7 @@ body {
 }
 
 .window-container {
-    background-color: #0a0a0a; /* Couleur de fond de la fenêtre */
+    background-color: #070707; /* Couleur de fond de la fenêtre */
     border-radius: 10px; /* Arrondi des coins */
     width: 200%; /* Augmenter la largeur de la fenêtre */
     max-width: 1850px; /* Largeur maximale pour la fenêtre */
@@ -82,23 +85,23 @@ body {
 }
 
 .function-name {
-    color: #32CD32; /* Vert Lime */
+    color: #c55d6b; /* Vert Lime */
 }
 
 .class-name {
-    color: #FFD700; /* Jaune Doré */
+    color: #00BFFF; /* Jaune Doré */
 }
 
 .keyword {
-    color: #FF6347; /* Tomate */
+    color: #8551af; /* Tomate */
 }
 
 .parameter {
-    color: #8A2BE2; /* Bleu Violet */
+    color: #db6744; /* Bleu Violet */
 }
 
 .string {
-    color: #FF69B4; /* Rose */
+    color: #e6a901; /* Rose */
 }
 
 /* Nouveau style pour le message de remerciement */
@@ -131,4 +134,24 @@ body {
     100% {
         opacity: 1;
     }
+}
+
+#musicButton {
+    background-color: #a3a3a8; /* Couleur de fond rouge */
+    color: #ffffff; /* Couleur du texte blanc */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 10px 20px; /* Espacement intérieur */
+    font-size: 16px; /* Taille de la police */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: background-color 0.3s, transform 0.2s; /* Animation lors du hover */
+}
+
+#musicButton:hover {
+    background-color: #ff6b81; /* Couleur de fond au survol */
+    transform: scale(1.10); /* Légère augmentation de taille au survol */
+}
+
+#musicButton:focus {
+    outline: none; /* Supprimer le contour par défaut */
 }
