@@ -16,7 +16,7 @@
                 <div class="button minimize"></div>
                 <div class="button maximize"></div>
             </div>
-        </div>
+
         
         <div class="code-window">
             <div class="code-line">
@@ -34,26 +34,25 @@
             </div>
             <div class="code-line">
                 <span class="comment">/* work at */</span>
-                &nbsp;&nbsp;<span class="function-name">3vfi-dev</span>.<span class="method-name">addJob</span>({ <span class="parameter">name</span>: <span class="string">"TruckersMP"</span>, <span class="parameter">role</span>: <span class="string">"dev"</span>, <span class="parameter">link</span>: <span class="string">"https://truckersmp.com/"</span> });
-                &nbsp;&nbsp;<span class="function-name">3vfi-dev</span>.<span class="method-name">addJob</span>({ <span class="parameter">name</span>: <span class="string">"Ticket tool"</span>, <span class="parameter">role</span>: <span class="string">"Support Team"</span>, <span class="parameter">link</span>: <span class="string">"https://tickettool.xyz/"</span> });
+                &nbsp;&nbsp;<span class="function-name">3vfi-dev</span>.<span class="method-name">addJob</span>({ <span class="parameter">name</span>: <span class="string">"TruckersMP"</span>, <span class="parameter">role</span>: <span class="string">"dev"</span>, <span class="parameter">link</span>: <a href="https://truckersmp.com/" target="_blank">"https://truckersmp.com/"</a> });
+                &nbsp;&nbsp;<span class="function-name">3vfi-dev</span>.<span class="method-name">addJob</span>({ <span class="parameter">name</span>: <span class="string">"Ticket tool"</span>, <span class="parameter">role</span>: <span class="string">"Support Team"</span>, <span class="parameter">link</span>: <a href="https://tickettool.xyz/" target="_blank">"https://tickettool.xyz/"</a> });
             </div>
             <div class="code-line">
                 <span class="comment">/* hobbies */</span>
-                &nbsp;&nbsp;<span class="function-name">3vfi-dev</span>.<span class="method-name">addHobbie</span>({ <span class="parameter">thing</span>: <span class="string">"coding, car, navy, gym.."</span>});
+                &nbsp;&nbsp;<span class="function-name">3vfi-dev</span>.<span class="method-name">addHobbie</span>({ <span class="parameter">thing</span>: <span class="string">"coding, japan, car, navy, gym.."</span>});
             </div>
             <div class="code-line">
                 <span class="keyword">return</span> <span class="function-name">3v.dev</span>;
-            }
-            </div>
 
 
         <!-- Bouton pour jouer/arrêter la musique -->
-        <button id="musicButton">Click me!</button>
-        <audio id="myAudio" src="Stay with me (remix) ( soft bass boost).mp3"></audio> <!-- Assurez-vous que le fichier audio est dans le même dossier -->
+                                                                        <button id="musicButton">Click me!</button>
+        <audio id="myAudio" src="Welcome to Path.mp3"></audio> <!-- Assurez-vous que le fichier audio est dans le même dossier -->
 
     <script>
         const audio = document.getElementById('myAudio');
         const musicButton = document.getElementById('musicButton');
+        let isInitialBackground = true; 
 
         musicButton.addEventListener('click', function() {
             if (audio.paused) {
@@ -66,6 +65,13 @@
                 audio.pause();
                 musicButton.textContent = "Click me!";
             }
+
+if (isInitialBackground) {
+                document.body.style.backgroundImage = "url('https://i.pinimg.com/originals/09/a7/01/09a701c1aa2106a4ca1b9a174f0a4862.gif')";
+            } else {
+                document.body.style.backgroundImage = "url('https://64.media.tumblr.com/09ab9d7984068cf78ff6b82f47c3c3a3/1587ad98646feaa9-cf/s540x810/4e789c685dc3cfbda7272acffca2af7cb92c7c5b.gif')";
+            }
+            isInitialBackground = !isInitialBackground; 
         });
     </script>
 </body>
