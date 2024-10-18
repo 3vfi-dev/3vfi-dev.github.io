@@ -15,7 +15,7 @@ body {
 }
 
 .window-container {
-    background-color: rgba(7, 7, 7, 0.8); /* Couleur de fond avec transparence (80% opaque) */
+    background-color: rgba(0, 0, 0, 0.9); /* Couleur de fond avec transparence (80% opaque) */
     border-radius: 10px; /* Arrondi des coins */
     width: 200%; /* Augmenter la largeur de la fenêtre */
     border-radius: 15px;
