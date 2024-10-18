@@ -20,7 +20,7 @@ body {
     width: 200%; /* Augmenter la largeur de la fenêtre */
     border-radius: 15px;
     max-width: 1850px; /* Largeur maximale pour la fenêtre */
-    height: 730px; /* Hauteur fixe pour éviter l'agrandissement */
+    height: 740px; /* Hauteur fixe pour éviter l'agrandissement */
     box-shadow: 0 0 500px rgba(0, 0, 0, 0.5); /* Ombre */
     overflow: hidden; /* Cacher le débordement */
     position: relative; /* Position relative pour le positionnement des boutons */
