@@ -155,3 +155,35 @@ body {
 #musicButton:focus {
     outline: none; /* Supprimer le contour par défaut */
 }
+
+@media screen and (max-width: 1024px) {
+    .window-container {
+        width: 90%;
+    }
+
+    .button {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* Adaptation pour les petits écrans (téléphones mobiles) */
+@media screen and (max-width: 600px) {
+    .window-container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .title-bar {
+        padding: 5px;
+    }
+
+    .button {
+        width: 10px;
+        height: 10px;
+    }
+
+    body {
+        padding: 10px;
+    }
+}
