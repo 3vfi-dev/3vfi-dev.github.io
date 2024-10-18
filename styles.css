@@ -1,7 +1,8 @@
 body {
-    background-color: #1e1e1e; /* Fond noir */
-    color: #dcdcdc; /* Couleur du texte */
+    background-color: #1f1e1e; /* Fond noir */
+    color: #f8f6f6; /* Couleur du texte par défaut */
     font-family: 'Courier New', Courier, monospace; /* Police de caractères */
+    font-feature-settings: "smcp", "zero";
     padding: 0;
     margin: 0;
     display: flex;
@@ -11,20 +12,25 @@ body {
 }
 
 .window-container {
-    background-color: #070707; /* Couleur de fond de la fenêtre */
+    background-color: #0a0a0a; /* Couleur de fond de la fenêtre */
     border-radius: 10px; /* Arrondi des coins */
-    width: 100%; /* Augmenter la largeur de la fenêtre */
+    width: 200%; /* Augmenter la largeur de la fenêtre */
     max-width: 1850px; /* Largeur maximale pour la fenêtre */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ombre */
+    height: 700px; /* Hauteur fixe pour éviter l'agrandissement */
+    box-shadow: 0 0 500px rgba(0, 0, 0, 0.5); /* Ombre */
     overflow: hidden; /* Cacher le débordement */
     position: relative; /* Position relative pour le positionnement des boutons */
+    display: flex; /* Ajouté pour organiser en colonne */
+    flex-direction: column; /* Empiler verticalement */
+    align-items: center; /* Centrer le contenu horizontalement */
 }
 
 .title-bar {
-    background-color: #504f4f; /* Couleur de la barre de titre */
-    padding: 10px; /* Espacement interne */
+    background-color: #5a5959; /* Couleur de la barre de titre */
+    padding: 12px; /* Espacement interne */
     display: flex; /* Affichage flex pour les boutons */
     align-items: center; /* Aligner verticalement */
+    width: 100%; /* S'assurer que la barre de titre prend toute la largeur */
 }
 
 .buttons {
@@ -35,55 +41,94 @@ body {
 .button {
     width: 15px; /* Largeur des boutons */
     height: 15px; /* Hauteur des boutons */
-    border-radius: 50%; /* Arrondi des boutons */
+    border-radius: 70%; /* Arrondi des boutons */
     margin: 0 5px; /* Espacement entre les boutons */
 }
 
-.close {
-    background-color: #ff605c; /* Rouge */
+.close { 
+    background-color: #be2f2c; /* Rouge */
 }
 
 .minimize {
-    background-color: #ffbd44; /* Jaune */
+    background-color: #f0b30b; /* Jaune */
 }
 
 .maximize {
-    background-color: #00ca4e; /* Vert */
+    background-color: #10da5d; /* Vert */
 }
 
 .code-window {
-    background-color: #0e0d0d; /* Couleur de fond de la fenêtre de code */
-    padding: 0px; /* Espacement interne */
+    padding: 15px; /* Espacement interne */
     border-radius: 5px; /* Arrondi des coins */
-    max-height: 850px; /* Hauteur maximale pour la fenêtre de code */
+    max-height: 500px; /* Hauteur maximale pour la fenêtre de code */
+    width: 200%; /* Prendre toute la largeur */
+    position: absolute; /* Pour garder la fenêtre de code fixe */
+    top: 50px; /* Ajuster selon l'espacement souhaité */
+    left: 0; /* Commencer à gauche */
 }
 
+/* Ajouter une animation si besoin pour le texte */
 .code-line {
-    white-space: pre; /* Préserver les espaces */
+    white-space: pre; /* Préserve les espaces */
     font-size: 1.2rem; /* Taille de police */
     padding: 0px; /* Espacement interne pour les lignes de code */
+    position: relative; /* Permettre le positionnement */
+    animation: fade-in 0.5s ease; /* Animation d'apparition */
 }
 
-.keyword {
-    color: #4797d8; /* Couleur des mots-clés */
+/* Ajoutez ces styles à votre fichier styles.css */
+.method-name {
+    color: #00BFFF; /* Bleu */
 }
 
-.function-name, .method-name {
-    color: #d3d370; /* Couleur des noms de fonction et de méthode */
-}
-
-.parameter {
-    color: #9cdcfe; /* Couleur des paramètres */
-}
-
-.string {
-    color: #ce9178; /* Couleur des chaînes de caractères */
+.function-name {
+    color: #32CD32; /* Vert Lime */
 }
 
 .class-name {
-    color: #4ec9b0; /* Couleur des noms de classe */
+    color: #FFD700; /* Jaune Doré */
 }
 
-.comment {
-    color: #608b4f; /* Couleur des commentaires */
+.keyword {
+    color: #FF6347; /* Tomate */
+}
+
+.parameter {
+    color: #8A2BE2; /* Bleu Violet */
+}
+
+.string {
+    color: #FF69B4; /* Rose */
+}
+
+/* Nouveau style pour le message de remerciement */
+.thank-you-message {
+    font-size: 2.0rem; /* Taille du message */
+    color: #dcdcdc; /* Couleur du texte */
+    margin-top: 0px; /* Espace au-dessus du message pour le séparer du code */
+    text-align: center; /* Centrer le message */
+    width: 100%; /* Pour que le message occupe toute la largeur */
+}
+
+
+/* Style pour le curseur */
+.cursor {
+    display: inline-block;
+    width: 2px; /* Largeur du curseur */
+    height: 0.8rem; /* Hauteur du curseur (correspondant à la hauteur de la ligne de texte) */
+    background-color: #dcdcdc; /* Couleur du curseur */
+    margin-left: 1px; /* Petit espace à gauche */
+    animation: blink 0.5s steps(2) infinite; /* Animation de clignotement */
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
