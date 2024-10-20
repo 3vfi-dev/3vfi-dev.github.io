@@ -188,3 +188,46 @@ body {
     outline: none; /* Supprime le contour lorsque le curseur est sélectionné */
     margin-right: 25px;
 }
+
+@media (max-width: 768px) {
+    /* Ajustements pour petits écrans */
+    .window-container {
+        width: 90%; /* Réduire la largeur pour mobiles */
+        max-width: 100%; /* S'assurer que ça ne dépasse pas 100% de l'écran */
+        height: auto; /* Laisser la hauteur s'adapter */
+        max-height: 80vh; /* Limiter la hauteur maximale sur petits écrans */
+    }
+
+    .code-window {
+        width: 100%; /* Ajuster la largeur de la fenêtre de code */
+        font-size: 1rem; /* Réduire la taille du texte sur mobile */
+    }
+
+    .thank-you-message {
+        font-size: 1.5rem; /* Réduire la taille du message pour les petits écrans */
+        text-align: center; /* Centrer le texte */
+    }
+
+    /* Ajuster le bouton de musique */
+    #musicButton {
+        font-size: 0.9rem; /* Taille de police plus petite sur mobile */
+        padding: 8px 12px; /* Réduire l'espacement interne */
+        max-width: 150px; /* Limiter la taille du bouton */
+    }
+
+    /* Adapter les boutons de la barre de titre */
+    .buttons {
+        margin-left: 10px; /* Réduire l'espacement sur mobile */
+    }
+    
+    /* Réduire les espaces des sliders et contrôles */
+    .volume-control {
+        margin-left: 10px; /* Espacement réduit sur petit écran */
+    }
+
+    /* Ajustement du slider */
+    #volumeSlider {
+        width: 70px; /* Réduire la largeur du slider pour mobile */
+    }
+}
+
