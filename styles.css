@@ -217,12 +217,15 @@ body {
     }
 
     .footer {
-        box-sizing: border-box;
-        width: 100%; /* Ajuster la largeur de la fenêtre de code */
-        font-size: 1rem;
-        overflow: auto; 
-        box-sizing: border-box;/* Réduire la taille du texte sur mobile */
-    }
+    box-sizing: border-box;
+    width: 100%; /* Assure que le footer prend la largeur de l'écran sans dépasser */
+    font-size: 1rem;
+    overflow: hidden; /* Empêche le contenu du footer de déborder */
+    padding: 1rem; /* Ajoute un peu d'espace autour du contenu du footer */
+    background-color: #f1f1f1; /* Optionnel : pour donner une couleur de fond */
+    text-align: center; /* Centrer le texte (facultatif) */
+    position: relative; /* Permet un placement flexible sans être absolu */
+}
 
         
 
