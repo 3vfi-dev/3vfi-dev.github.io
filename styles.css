@@ -15,12 +15,12 @@ body {
 }
 
 .window-container {
-    background-color: rgba(0, 0, 0, 0.8); /* Couleur de fond avec transparence (80% opaque) */
+    background-color: rgba(0, 0, 0, 0.9); /* Couleur de fond avec transparence (80% opaque) */
     border-radius: 10px; /* Arrondi des coins */
-    width: 200%; /* Augmenter la largeur de la fenêtre */
+    width: 210%; /* Augmenter la largeur de la fenêtre */
     border-radius: 15px;
     max-width: 1725px; /* Largeur maximale pour la fenêtre */
-    height: 730px; /* Hauteur fixe pour éviter l'agrandissement */
+    height: 680px; /* Hauteur fixe pour éviter l'agrandissement */
     box-shadow: 0 0 500px rgba(0, 0, 0, 0.5); /* Ombre */
     overflow: hidden; /* Cacher le débordement */
     position: relative; /* Position relative pour le positionnement des boutons */
@@ -32,7 +32,7 @@ body {
 
 .title-bar {
     background-color: #5a5959; /* Couleur de la barre de titre */
-    padding: 12px; /* Espacement interne */
+    padding: 11px; /* Espacement interne */
     display: flex; /* Affichage flex pour les boutons */
     align-items: center; /* Aligner verticalement */
     width: 100%; /* S'assurer que la barre de titre prend toute la largeur */
@@ -40,6 +40,7 @@ body {
 
 .buttons {
     display: flex; /* Afficher les boutons en ligne */
+    margin-left: 20px;
     margin-right: auto; /* Pousser les boutons vers la gauche */
 }
 
@@ -95,7 +96,7 @@ body {
 }
 
 .keyword {
-    color: #8551af; /* Tomate */
+    color: #810cee; /* Tomate */
 }
 
 .parameter {
@@ -104,6 +105,14 @@ body {
 
 .string {
     color: #e6a901; /* Rose */
+}
+
+.span {
+    color: #dcdcdc;
+}
+
+.comment {
+    color: #006811;
 }
 
 /* Nouveau style pour le message de remerciement */
@@ -152,12 +161,30 @@ body {
 }
 
 #musicButton:hover {
-    background-color: #ff6b81; /* Couleur de fond au survol */
+    background-color: #8b8989; /* Couleur de fond au survol */
     transform: translateY(-5px); /* Légère montée au survol */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre pour effet de profondeur */
+    box-shadow: 0 6px 15px rgba(126, 126, 126, 0.8); /* Ombre pour effet de profondeur */
 }
 
+/* Suppression du contour par défaut sur le bouton */
 #musicButton:focus {
     outline: none; /* Supprimer le contour par défaut */
 }
 
+/* Styles pour le contrôle de volume */
+.volume-control {
+    display: flex;
+    color: #ffffff; /* Couleur du texte, ici blanc */
+    align-items: center; /* Aligner verticalement les éléments */
+    margin-left: 20px; /* Espace entre les boutons et le contrôle de volume */
+}
+
+/* Styles pour le slider de volume */
+#volumeSlider {
+    width: 95px; /* Ajustez la largeur selon vos préférences */
+    height: 2px; /* Hauteur de la barre */
+    border-radius: 5px; /* Coins arrondis */
+    background: #9c3636; /* Couleur de la barre */
+    outline: none; /* Supprime le contour lorsque le curseur est sélectionné */
+    margin-right: 25px;
+}
