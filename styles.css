@@ -191,30 +191,39 @@ body {
 
 @media (max-width: 768px) {
     /* Ajustements pour petits écrans */
-    .window-container {
-        width: 90%; /* Réduire la largeur pour mobiles */
-        max-width: 100%; /* S'assurer que ça ne dépasse pas 100% de l'écran */
-        height: auto; /* Laisser la hauteur s'adapter */
-        max-height: 80vh; /* Limiter la hauteur maximale sur petits écrans */
-    }
+   .window-container {
+    width: 90%; /* Réduire la largeur pour mobiles */
+    max-width: 100%; /* S'assurer que ça ne dépasse pas 100% de l'écran */
+    height: auto; /* Laisser la hauteur s'adapter */
+    max-height: 80vh; /* Limiter la hauteur maximale sur petits écrans */
+    overflow: hidden; /* Empêcher tout débordement du contenu */
+    box-sizing: border-box;
+    padding: 1rem; /* Ajoute un padding interne */
+}
 
-    .code-window {
-        position: relative;
-        width: 100%; /* Ajuster la largeur de la fenêtre de code */
-        font-size: 1rem; /* Réduire la taille du texte sur mobile */
-        overflow: auto;
-        box-sizing: border-box;
-        font-size: 0.875rem;
-    }
+.code-window {
+    position: relative;
+    width: 100%; /* S'adapte à la largeur du parent (window-container) */
+    font-size: 1rem; /* Taille de texte par défaut */
+    overflow: auto; /* Permet le défilement si nécessaire */
+    box-sizing: border-box;
+    max-width: 100%; /* S'assurer que le contenu ne dépasse pas la largeur disponible */
+    max-height: 100%; /* S'adapte à la hauteur disponible */
+    font-size: 0.875rem; /* Taille de texte légèrement réduite */
+    white-space: pre-wrap; /* Permet de couper les lignes longues */
+    word-wrap: break-word; /* Coupe les mots trop longs */
+}
 
-      .code-line {
-        box-sizing: border-box;
-        width: 100%; /* Ajuster la largeur de la fenêtre de code */
-        font-size: 1rem;
-        overflow: auto; 
-        box-sizing: border-box; 
-        font-size: 0.875rem; /* Réduire la taille du texte sur mobile */
-    }
+.code-line {
+    box-sizing: border-box;
+    width: 100%; /* S'adapte à la largeur du parent (code-window) */
+    font-size: 1rem; /* Taille de texte par défaut */
+    overflow: auto; /* Permet le défilement si nécessaire */
+    max-width: 100%; /* Empêche les lignes de dépasser la largeur */
+    white-space: pre-wrap; /* Coupe les lignes longues */
+    word-wrap: break-word; /* Coupe les mots trop longs */
+    font-size: 0.875rem; /* Taille de texte légèrement réduite */
+}
 
     .footer {
     box-sizing: border-box;
