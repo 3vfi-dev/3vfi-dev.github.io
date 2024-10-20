@@ -203,6 +203,11 @@ body {
         font-size: 1rem; /* Réduire la taille du texte sur mobile */
     }
 
+      .code-line {
+        width: 100%; /* Ajuster la largeur de la fenêtre de code */
+        font-size: 1rem; /* Réduire la taille du texte sur mobile */
+    }
+
     .thank-you-message {
         font-size: 1.5rem; /* Réduire la taille du message pour les petits écrans */
         text-align: center; /* Centrer le texte */
