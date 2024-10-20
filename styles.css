@@ -214,6 +214,16 @@ body {
         box-sizing: border-box;/* Réduire la taille du texte sur mobile */
     }
 
+    .footer {
+        box-sizing: border-box;
+        width: 100%; /* Ajuster la largeur de la fenêtre de code */
+        font-size: 1rem;
+        overflow: auto; 
+        box-sizing: border-box;/* Réduire la taille du texte sur mobile */
+    }
+
+        
+
     .thank-you-message {
         font-size: 1.5rem; /* Réduire la taille du message pour les petits écrans */
         text-align: center; /* Centrer le texte */
