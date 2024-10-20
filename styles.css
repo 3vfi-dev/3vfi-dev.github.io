@@ -201,6 +201,7 @@ body {
     .code-window {
         width: 100%; /* Ajuster la largeur de la fenêtre de code */
         font-size: 1rem; /* Réduire la taille du texte sur mobile */
+        overflow: auto;
     }
 
       .code-line {
