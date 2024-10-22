@@ -1,0 +1,224 @@
+body {
+    background: linear-gradient(10deg, #05153f, #000000);
+    background-size: cover; /* Couvre tout l'écran */
+    background-position: center; /* Centre l'image */
+    background-repeat: repeat; /* Évite la répétition de l'image */
+    color: #f8f6f6; /* Couleur du texte par défaut */
+    font-family: 'Courier New', Courier, monospace; /* Police de caractères */
+    font-feature-settings: "smcp", "zero";
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    height: 100vh; /* Hauteur de la vue */
+}
+
+.window-container {
+    background-color: rgba(0, 0, 0, 0.9); /* Couleur de fond avec transparence (80% opaque) */
+    border-radius: 10px; /* Arrondi des coins */
+    width: 210%; /* Augmenter la largeur de la fenêtre */
+    border-radius: 15px;
+    max-width: 1725px; /* Largeur maximale pour la fenêtre */
+    height: 680px; /* Hauteur fixe pour éviter l'agrandissement */
+    box-shadow: 0 0 500px rgba(0, 0, 0, 0.5); /* Ombre */
+    overflow: hidden; /* Cacher le débordement */
+    position: relative; /* Position relative pour le positionnement des boutons */
+    display: flex; /* Ajouté pour organiser en colonne */
+    flex-direction: column; /* Empiler verticalement */
+    align-items: center; /* Centrer le contenu horizontalement */
+}
+
+
+.title-bar {
+    background-color: #5a5959; /* Couleur de la barre de titre */
+    padding: 11px; /* Espacement interne */
+    display: flex; /* Affichage flex pour les boutons */
+    align-items: center; /* Aligner verticalement */
+    width: 100%; /* S'assurer que la barre de titre prend toute la largeur */
+}
+
+.buttons {
+    display: flex; /* Afficher les boutons en ligne */
+    margin-left: 20px;
+    margin-right: auto; /* Pousser les boutons vers la gauche */
+}
+
+.button {
+    width: 15px; /* Largeur des boutons */
+    height: 15px; /* Hauteur des boutons */
+    border-radius: 50%; /* Arrondi des boutons */
+    margin: 0 4px; /* Espacement entre les boutons */
+}
+
+.close { 
+    background-color: #be2f2c; /* Rouge */
+}
+
+.minimize {
+    background-color: #f0b30b; /* Jaune */
+}
+
+.maximize {
+    background-color: #10da5d; /* Vert */
+}
+
+.code-window {
+    padding: 15px; /* Espacement interne */
+    border-radius: 5px; /* Arrondi des coins */
+    max-height: 500px; /* Hauteur maximale pour la fenêtre de code */
+    width: 200%; /* Prendre toute la largeur */
+    position: absolute; /* Pour garder la fenêtre de code fixe */
+    top: 50px; /* Ajuster selon l'espacement souhaité */
+    left: 0; /* Commencer à gauche */
+}
+
+/* Ajouter une animation si besoin pour le texte */
+.code-line {
+    white-space: pre; /* Préserve les espaces */
+    font-size: 1.2rem; /* Taille de police */
+    padding: 0px; /* Espacement interne pour les lignes de code */
+    position: relative; /* Permettre le positionnement */
+    animation: fade-in 0.5s ease; /* Animation d'apparition */
+}
+
+/* Ajoutez ces styles à votre fichier styles.css */
+.method-name {
+    color: #00BFFF; /* Bleu */
+}
+
+.function-name {
+    color: #c55d6b; /* Vert Lime */
+}
+
+.class-name {
+    color: #00BFFF; /* Jaune Doré */
+}
+
+.keyword {
+    color: #810cee; /* Tomate */
+}
+
+.parameter {
+    color: #db6744; /* Bleu Violet */
+}
+
+.string {
+    color: #e6a901; /* Rose */
+}
+
+.span {
+    color: #dcdcdc;
+}
+
+.comment {
+    color: #006811;
+}
+
+/* Nouveau style pour le message de remerciement */
+.thank-you-message {
+    font-size: 2.0rem; /* Taille du message */
+    color: #dcdcdc; /* Couleur du texte */
+    margin-top: 0px; /* Espace au-dessus du message pour le séparer du code */
+    text-align: center; /* Centrer le message */
+    width: 100%; /* Pour que le message occupe toute la largeur */
+}
+
+
+/* Style pour le curseur */
+.cursor {
+    display: inline-block;
+    width: 2px; /* Largeur du curseur */
+    height: 0.8rem; /* Hauteur du curseur (correspondant à la hauteur de la ligne de texte) */
+    background-color: #dcdcdc; /* Couleur du curseur */
+    margin-left: 1px; /* Petit espace à gauche */
+    animation: blink 0.5s steps(2) infinite; /* Animation de clignotement */
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#musicButton {
+    background-color: #5a5959; /* Couleur de fond grise */
+    color: #ffffff; /* Couleur du texte blanc */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 10px 20px; /* Espacement intérieur */
+    font-size: 16px; /* Taille de la police */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Animation lors du hover */
+    position: relative; /* Position relative pour le mouvement */
+    display: inline-block; /* Pour que le bouton ne prenne que l'espace nécessaire */
+}
+
+#musicButton:hover {
+    background-color: #8b8989; /* Couleur de fond au survol */
+    transform: translateY(-5px); /* Légère montée au survol */
+    box-shadow: 0 6px 15px rgba(126, 126, 126, 0.8); /* Ombre pour effet de profondeur */
+}
+
+/* Suppression du contour par défaut sur le bouton */
+#musicButton:focus {
+    outline: none; /* Supprimer le contour par défaut */
+}
+
+/* Styles pour le contrôle de volume */
+.volume-control {
+    display: flex;
+    color: #ffffff; /* Couleur du texte, ici blanc */
+    align-items: center; /* Aligner verticalement les éléments */
+    margin-left: 20px; /* Espace entre les boutons et le contrôle de volume */
+}
+
+/* Styles pour le slider de volume */
+#volumeSlider {
+    width: 95px; /* Ajustez la largeur selon vos préférences */
+    height: 2px; /* Hauteur de la barre */
+    border-radius: 5px; /* Coins arrondis */
+    background: #9c3636; /* Couleur de la barre */
+    outline: none; /* Supprime le contour lorsque le curseur est sélectionné */
+    margin-right: 25px;
+}
+
+/* Conteneur pour centrer le texte */
+.greeting-container {
+    display: flex;
+    justify-content: center;  /* Centre horizontalement */
+    align-items: flex-start;  /* Place le contenu en haut */
+    height: 100vh;            /* Prend toute la hauteur de la fenêtre */
+    position: absolute;       /* Positionne le texte au-dessus de tout le reste */
+    width: 100%;              /* Prend toute la largeur de la fenêtre */
+    z-index: 10;              /* S'assure que le texte soit devant tout autre élément */
+    padding-top: 100px;       /* Ajoute de l'espace au-dessus pour placer le texte plus bas */
+}
+
+/* Style et animation du texte */
+.greeting-text {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+    animation: slideUp 2s ease-in-out forwards;
+}
+
+/* Animation qui fait "monter" le texte */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(65px); /* Commence 50px plus bas */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-10px); /* Remonte 50px au-dessus de sa position normale */
+    }
+}
