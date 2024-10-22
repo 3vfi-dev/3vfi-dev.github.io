@@ -1,5 +1,5 @@
 body {
-    background-image: url('https://64.media.tumblr.com/09ab9d7984068cf78ff6b82f47c3c3a3/1587ad98646feaa9-cf/s540x810/4e789c685dc3cfbda7272acffca2af7cb92c7c5b.gif');/* Fond noir */
+    background: linear-gradient(10deg, #05153f, #000000);
     background-size: cover; /* Couvre tout l'écran */
     background-position: center; /* Centre l'image */
     background-repeat: repeat; /* Évite la répétition de l'image */
@@ -189,80 +189,36 @@ body {
     margin-right: 25px;
 }
 
-@media (max-width: 768px) {
-    /* Ajustements pour petits écrans */
-   .window-container {
-    width: 90%; /* Réduire la largeur pour mobiles */
-    max-width: 100%; /* S'assurer que ça ne dépasse pas 100% de l'écran */
-    height: auto; /* Laisser la hauteur s'adapter */
-    max-height: 80vh; /* Limiter la hauteur maximale sur petits écrans */
-    overflow: hidden; /* Empêcher tout débordement du contenu */
-    box-sizing: border-box;
-    padding: 1rem; /* Ajoute un padding interne */
+/* Conteneur pour centrer le texte */
+.greeting-container {
+    display: flex;
+    justify-content: center;  /* Centre horizontalement */
+    align-items: flex-start;  /* Place le contenu en haut */
+    height: 100vh;            /* Prend toute la hauteur de la fenêtre */
+    position: absolute;       /* Positionne le texte au-dessus de tout le reste */
+    width: 100%;              /* Prend toute la largeur de la fenêtre */
+    z-index: 10;              /* S'assure que le texte soit devant tout autre élément */
+    padding-top: 100px;       /* Ajoute de l'espace au-dessus pour placer le texte plus bas */
 }
 
-.code-window {
+/* Style et animation du texte */
+.greeting-text {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
     position: relative;
-    width: 100%; /* S'adapte à la largeur du parent (window-container) */
-    font-size: 1rem; /* Taille de texte par défaut */
-    overflow: auto; /* Permet le défilement si nécessaire */
-    box-sizing: border-box;
-    max-width: 100%; /* S'assurer que le contenu ne dépasse pas la largeur disponible */
-    max-height: 100%; /* S'adapte à la hauteur disponible */
-    font-size: 0.875rem; /* Taille de texte légèrement réduite */
-    white-space: pre-wrap; /* Permet de couper les lignes longues */
-    word-wrap: break-word; /* Coupe les mots trop longs */
+    animation: slideUp 2s ease-in-out forwards;
 }
 
-.code-line {
-    box-sizing: border-box;
-    width: 100%; /* S'adapte à la largeur du parent (code-window) */
-    font-size: 1rem; /* Taille de texte par défaut */
-    overflow: auto; /* Permet le défilement si nécessaire */
-    max-width: 100%; /* Empêche les lignes de dépasser la largeur */
-    white-space: pre-wrap; /* Coupe les lignes longues */
-    word-wrap: break-word; /* Coupe les mots trop longs */
-    font-size: 0.875rem; /* Taille de texte légèrement réduite */
-}
-
-    .footer {
-    box-sizing: border-box;
-    width: 100%; /* Assure que le footer prend la largeur de l'écran sans dépasser */
-    font-size: 1rem;
-    overflow: hidden; /* Empêche le contenu du footer de déborder */
-    padding: 1rem; /* Ajoute un peu d'espace autour du contenu du footer */
-    background-color: #f1f1f1; /* Optionnel : pour donner une couleur de fond */
-    text-align: center; /* Centrer le texte (facultatif) */
-    position: relative; /* Permet un placement flexible sans être absolu */
-}
-
-        
-
-    .thank-you-message {
-        font-size: 1.5rem; /* Réduire la taille du message pour les petits écrans */
-        text-align: center; /* Centrer le texte */
+/* Animation qui fait "monter" le texte */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(65px); /* Commence 50px plus bas */
     }
-
-    /* Ajuster le bouton de musique */
-    #musicButton {
-        font-size: 0.9rem; /* Taille de police plus petite sur mobile */
-        padding: 8px 12px; /* Réduire l'espacement interne */
-        max-width: 150px; /* Limiter la taille du bouton */
-    }
-
-    /* Adapter les boutons de la barre de titre */
-    .buttons {
-        margin-left: 10px; /* Réduire l'espacement sur mobile */
-    }
-    
-    /* Réduire les espaces des sliders et contrôles */
-    .volume-control {
-        margin-left: 10px; /* Espacement réduit sur petit écran */
-    }
-
-    /* Ajustement du slider */
-    #volumeSlider {
-        width: 70px; /* Réduire la largeur du slider pour mobile */
+    to {
+        opacity: 1;
+        transform: translateY(-10px); /* Remonte 50px au-dessus de sa position normale */
     }
 }
-
