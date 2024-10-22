@@ -16,9 +16,24 @@
         #volumeSlider {
             width: 150px; /* Ajustez la largeur selon vos préférences */
         }
+
+        #musicButton {
+            z-index: 10; 
+            padding: 10px 30px; /* Ajoute du padding */
+            font-size: 16px; /* Taille de la police */
+            cursor: pointer; /* Change le curseur au survol */
+            margin-top: 0px; /* Espace au-dessus du bouton */
+        }
+        
     </style>
 </head>
 <body>
+
+    <div class="greeting-container">
+        <div class="greeting-text" id="greetingText">
+            Hi there 👋
+        </div>
+    </div>
 
     <div class="window-container">
         <div class="title-bar">
@@ -57,7 +72,8 @@
 
 
             <!-- Bouton pour jouer/arrêter la musique -->
-                                                                     <button id="musicButton">Click me!</button>
+                                                                    <button id="musicButton" style="z-index: 10; ">Click me!</button>
+
             <audio id="myAudio" src="Welcome to Path.mp3"></audio> <!-- Assurez-vous que le fichier audio est dans le même dossier -->
 
             <footer style="
@@ -71,8 +87,9 @@
                 width: 100%; 
                 background-color: #5a5959; /* couleur fixe */
                 color: rgb(255, 255, 255);
+                z-index: 1;
                 box-shadow: 0 -1px 15px rgba(0, 0, 0, 0.5);">
-I'm just starting out learning html, so it's completely normal if there are some bugs!               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png" title="314 visitor!" style="width: 20px; height: 20px; margin-right: 3px;"><a href="https://www.instagram.com/bptisteg/" style="color: #71B6F9; text-decoration: none;">Instagram</a>                                                                           Thank you for visiting ;)
+I'm just beginning to learn HTML, so it's perfectly normal for me to encounter some bugs!               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png" title="314 visitor!" style="width: 20px; height: 20px; margin-right: 3px;"><a href="https://www.instagram.com/bptisteg/" style="color: #71B6F9; text-decoration: none;">Instagram</a>                                                                           Thank you for visiting ;)
             </footer>
         </div>
 
@@ -84,26 +101,31 @@ I'm just starting out learning html, so it's completely normal if there are some
             let isInitialBackground = true; 
 
             musicButton.addEventListener('click', function() {
-                if (audio.paused) {
-                    audio.play().then(() => {
-                        musicButton.textContent = "Stop";
-                        volumeControl.style.display = "flex"; // Affiche le contrôle de volume
-                    }).catch(error => {
-                        console.error('Error playing audio:', error);
-                    });
-                } else {
-                    audio.pause();
-                    musicButton.textContent = "Click me!";
-                    volumeControl.style.display = "none"; // Cache le contrôle de volume
-                }
+    if (audio.paused) {
+        // Si l'audio est en pause, on le joue
+        audio.play().then(() => {
+            musicButton.textContent = "Stop"; // Changer le texte du bouton
+            volumeControl.style.display = "flex"; // Affiche le contrôle de volume
+            greetingText.style.display = "none"; // Masque le texte de salutation
+            document.body.style.backgroundImage = "url('https://i.pinimg.com/originals/09/a7/01/09a701c1aa2106a4ca1b9a174f0a4862.gif')"; // Change l'arrière-plan en gif
+        }).catch(error => {
+            console.error('Error playing audio:', error);
+        });
+    } else {
+        // Si l'audio est en cours de lecture, on le met en pause
+        audio.pause();
+        musicButton.textContent = "Click me!"; // Changer le texte du bouton
+        volumeControl.style.display = "none"; // Cache le contrôle de volume
+        document.body.style.backgroundImage = ""; // Supprime toute image de fond
+        document.body.style.background = "linear-gradient(10deg, #05153f, #000000)"; // Applique un dégradé en fond
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundSize = "cover";
+        greetingText.style.display = "block";
+    }
 
-                if (isInitialBackground) {
-                    document.body.style.backgroundImage = "url('https://i.pinimg.com/originals/09/a7/01/09a701c1aa2106a4ca1b9a174f0a4862.gif')";
-                } else {
-                    document.body.style.backgroundImage = "url('https://64.media.tumblr.com/09ab9d7984068cf78ff6b82f47c3c3a3/1587ad98646feaa9-cf/s540x810/4e789c685dc3cfbda7272acffca2af7cb92c7c5b.gif')";
-                }
-                isInitialBackground = !isInitialBackground; 
-            });
+    // Alterne la valeur de isInitialBackground
+    isInitialBackground = !isInitialBackground;
+});
 
             // Ajoute un événement pour changer le volume
             volumeSlider.addEventListener('input', function() {
