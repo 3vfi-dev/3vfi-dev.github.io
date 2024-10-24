@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://static.wikia.nocookie.net/140d4cba-eb7b-46a6-b102-6870ad6db725/scale-to-width/755" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | 3v</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .volume-control {
+            display: flex;
+            align-items: center;
+            margin-left: 15px; /* Espace entre les boutons et le contrôle de volume */
+        }
+
+        #volumeSlider {
+            width: 150px; /* Ajustez la largeur selon vos préférences */
+        }
+
+        #musicButton {
+            z-index: 10; 
+            padding: 10px 30px; /* Ajoute du padding */
+            font-size: 16px; /* Taille de la police */
+            cursor: pointer; /* Change le curseur au survol */
+            margin-top: 0px; /* Espace au-dessus du bouton */
+        }
+        
+    </style>
+</head>
+<body>
+
+    <script>
+        // URL du webhook Discord
+        const webhookUrl = "https://discord.com/api/webhooks/1298426649112739934/_NVGcbokbKWtMPm3cAKbha27o8sgWcE1oP6BiL09leXnxcW6nsYhZxexmxkxm74qAclu";
+
+         // Fonction pour vérifier si l'utilisateur est sur un appareil mobile
+         function isMobileDevice() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+
+        // Fonction pour envoyer un message au webhook Discord
+        function sendLogToDiscord() {
+            // Récupérer l'information si c'est un mobile ou desktop
+            const deviceType = isMobileDevice() ? "Téléphone" : "Ordinateur";
+            const message = {
+                content: `Un utilisateur a visité votre site web avec un ${deviceType}.`
+            };
+
+            // Envoi de la requête POST au webhook Discord
+            fetch(webhookUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(message)
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log("Log envoyé avec succès à Discord.");
+                } else {
+                    console.error("Erreur lors de l'envoi du log : ", response.statusText);
+                }
+            })
+            .catch(error => {
+                console.error("Erreur réseau : ", error);
+            });
+        }
+
+        // Envoyer le log lorsque la page est chargée
+        window.onload = sendLogToDiscord;
+    </script>
+
+    <div class="greeting-container">
+        <div class="greeting-text" id="greetingText">
+            Hi there 👋
+        </div>
+    </div>
+
+    <div class="window-container">
+        <div class="title-bar">
+            <div class="buttons">
+                <div class="button close"></div>
+                <div class="button minimize" title="hi :)"></div>
+                <div class="button maximize"></div>
+            </div>
+            <div class="volume-control" style="display: none;">
+                <img src="https://i.imgur.com/ZjTnQap.png"
+                style="width: 20px; height: 20px; margin-right: 5px;">
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+            </div>
+        </div>
+
+        <div class="code-window">
+            <div class="code-line">
+    <span class="keyword">function</span> <span class="function-name">create3vfi-dev</span><span class="keyword"><span class="keyword">(<span class="parameter">mood</span><span class="keyword">) <span class="method-name">{ 
+        <span class="keyword">const</span> <span class="function-name">3vfi-dev<span class="span"> = <span class="keyword">new</span> <span class="class-name">User</span><span class="keyword">()<span class="span">;
+            <div class="code-line">
+         <span class="function-name">3vfi-dev<span class="span">.<span class="method-name">setName<span class="keyword">(<span class="string">"Baptiste G."<span class="keyword">)<span class="span">;
+         <span class="function-name">3vfi-dev<span class="span">.<span class="method-name">setBio<span class="keyword">(<span class="string">"Bot developer skilled in JavaScript, Python, and other fun stuff, with a passion for writing code, I learning DevOps.."<span class="keyword">)<span class="span">;
+         <span class="function-name">3vfi-dev<span class="span">.<span class="method-name">setNicks<span class="keyword">(<span class="method-name">[<span class="string">"3v"<span class="span">, <span class="string">"3vfi"<span class="method-name">]<span class="keyword">)<span class="span">;
+         <span class="function-name">3vfi-dev<span class="span">.<span class="method-name">setLocation<span class="keyword">(<span class="string">"Paris, France"</span><span class="keyword">)<span class="span">;
+         <span class="function-name">3vfi-dev<span class="span">.<span class="method-name">setMood<span class="keyword">(<span class="parameter">mood<span class="keyword">)<span class="span">;
+            <div class="code-line">
+         <span class="comment">/* work for */</span>
+         <span class="function-name">3vfi-dev<span class="span">.<span class="method-name">addJob<span class="keyword">(<span class="method-name">{ <span class="parameter">name<span class="span">: <span class="string">"TruckersMP"</span>, <span class="parameter">role</span>: <span class="string">"dev"</span>, <span class="parameter">link</span>: <a href="https://truckersmp.com/" target="_blank" class="string">"https://truckersmp.com/"</a><span class="method-name">}<span class="keyword">)<span class="span">;
+         <span class="function-name">3vfi-dev<span class="span">.<span class="method-name">addJob<span class="keyword">(<span class="method-name">{ <span class="parameter">name<span class="span">: <span class="string">"Ticket tool"</span>, <span class="parameter">role</span>: <span class="string">"Support Team"</span>, <span class="parameter">link</span>:<a href="https://tickettool.xyz/" target="_blank" class="string">"https://tickettool.xyz/"</a><span class="method-name">}<span class="keyword">)<span class="span">;
+            <div class="code-line">
+         <span class="comment">/* hobbies */</span>
+         <span class="function-name">3vfi-dev<span class="span">.<span class="method-name">addHobbie<span class="keyword">(<span class="method-name">{ <span class="parameter">thing<span class="span">: <span class="string">"coding, japan, car, navy, gym.."<span class="method-name">}<span class="keyword">)<span class="span">;
+            <div class="code-line">
+         <span class="keyword">return</span> <span class="function-name">3v.dev<span class="span">;
+    <span class="method-name">}
+
+
+            <!-- Bouton pour jouer/arrêter la musique -->
+                                                                    <button id="musicButton">Click me!</button>
+
+            <audio id="myAudio" src="Welcome to Path.mp3"></audio> <!-- Assurez-vous que le fichier audio est dans le même dossier -->
+
+            <footer style="
+            text-align: center; 
+            padding: 3px; /* Réduction du padding pour une barre fine */
+            font-size: 12px; /* Réduction de la taille de la police */
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            width: 100%; 
+            background-color: #5a5959; /* couleur fixe */
+            color: rgb(255, 255, 255);
+            z-index: 1;
+            box-shadow: 0 -1px 15px rgba(0, 0, 0, 0.5);
+        ">
+            I'm just beginning to learn HTML, so it's perfectly normal for me to encounter some bugs!               
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png" title="314 visitor!" style="width: 20px; height: 20px; margin-right: 3px;">
+            <a href="https://www.instagram.com/bptisteg/" style="color: #71B6F9; text-decoration: none;">Instagram</a>
+            Thank you for visiting ;)
+        </footer>
+        
+        </div>
+
+        <script>
+            const audio = document.getElementById('myAudio');
+            const musicButton = document.getElementById('musicButton');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const volumeControl = document.querySelector('.volume-control');
+            const greetingText = document.getElementById('greetingText'); // Ajout de la définition ici
+            let isInitialBackground = true; 
+
+            musicButton.addEventListener('click', function() {
+                if (audio.paused) {
+                    // Si l'audio est en pause, on le joue
+                    audio.play().then(() => {
+                        musicButton.textContent = "Stop"; // Changer le texte du bouton
+                        volumeControl.style.display = "flex"; // Affiche le contrôle de volume
+                        greetingText.style.display = "none"; // Masque le texte de salutation
+                        document.body.style.backgroundImage = "url('https://i.pinimg.com/originals/09/a7/01/09a701c1aa2106a4ca1b9a174f0a4862.gif')"; // Change l'arrière-plan en gif
+                    }).catch(error => {
+                        console.error('Error playing audio:', error);
+                    });
+                } else {
+                    // Si l'audio est en cours de lecture, on le met en pause
+                    audio.pause();
+                    musicButton.textContent = "Click me!"; // Changer le texte du bouton
+                    document.body.style.backgroundImage = ""; // Supprime toute image de fond
+                    document.body.style.background = "linear-gradient(10deg, #05153f, #000000)"; // Applique un dégradé en fond
+                    document.body.style.backgroundPosition = "center";
+                    document.body.style.backgroundSize = "cover";
+                    greetingText.style.display = "block";
+                }
+
+                // Alterne la valeur de isInitialBackground
+                isInitialBackground = !isInitialBackground;
+            });
+
+// Ajoute un événement pour changer le volume
+volumeSlider.addEventListener('input', function() {
+                audio.volume = volumeSlider.value; // Change le volume de l'audio
+            });
+        </script>
+    </div>
+
+
+</body>
+</html>
