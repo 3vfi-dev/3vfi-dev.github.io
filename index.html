@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3v Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .cursor::after {
+            content: '|';
+            display: inline-block;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        @keyframes scrollIn {
+            0% {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+    <div id="main-content" class="w-full flex flex-col items-center text-center max-w-2xl">
+        <div class="fixed top-0 left-0 w-full bg-gray-800 p-4 text-center z-10">
+            <div class="flex justify-center space-x-4">
+                <button onclick="toggleForm()" class="bg-[#5865f2] px-4 py-2 rounded">Contact</button>
+                <button onclick="toggleAboutMe()" class="bg-[#5865f2] px-4 py-2 rounded">About Me</button>
+                <button onclick="toggleHobbies()" class="bg-[#5865f2] px-4 py-2 rounded">Hobbies</button>
+                <button onclick="toggleWebsite()" class="bg-[#5865f2] px-4 py-2 rounded">Website</button>
+            </div>
+        </div>
+
+        <div id="form-container" class="hidden mt-4 p-4 bg-gray-700 rounded shadow-md">
+            <div id="form-header" class="mb-4 text-xl font-semibold text-center opacity-0">
+                <p id="message-header" class="hidden">Let's talk 💬<br>Leave a message on the form below</p>
+            </div>
+            <!-- Nouveau bouton "Close" avec image -->
+            <button onclick="closeForm()" class="absolute top-0 right-0 p-2 bg-transparent rounded-full">
+                <img src="https://cdn.pixabay.com/photo/2022/03/23/02/48/cross-7086307_1280.png" alt="Close" class="w-6 h-6">
+            </button>
+            <input id="username" type="text" placeholder="Username" class="w-full p-2 mb-2 text-black rounded">
+            <textarea id="message" placeholder="Your message" class="w-full p-2 text-black rounded"></textarea>
+            <button onclick="sendMessage()" class="mt-2 bg-green-500 px-4 py-2 rounded">Sent!</button>
+        </div>
+        
+
+        <a href="https://discord.com/users/225349654974431232">
+            <img src="https://lanyard.cnrad.dev/api/225349654974431232" alt="Discord Status" />
+        </a>
+
+        <h2 class="text-5xl md:text-6xl font-bold mb-4 mt-10">
+            Howdy, I'm <span style="color: #5865f2;">3v.</span> 🤠
+        </h2>
+
+        <div class="text-2xl text-center w-2/3 mb-6">
+            <span id="typewriter" class="cursor"></span>
+        </div>
+
+        <div class="flex space-x-8 mt-20 pb-4">
+            <a href="https://github.com/3vfi-dev" target="_blank">
+                <img src="https://i.postimg.cc/63Kp4wNm/icons8-github-64.png" alt="GitHub" class="w-10 h-10">
+            </a>
+            <a href="https://www.instagram.com/bptisteg/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="w-10 h-10">
+            </a>
+        </div>
+
+    </div>
+
+
+    <div id="about-me" class="hidden mt-4 p-6 bg-gray-700 text-center rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold mb-4">About Me</h2>
+        <p class="text-lg">
+            A guy, 20 years old, cool, Discord bot developer proficient in JS, Python, and other fun stuff.. with a strong passion for coding. 🚀
+        </p>
+        <p class="text-lg mt-4">
+            You can find me on:
+        </p>
+        <div class="space-x-4 mt-4">
+            <a href="https://tickettool.xyz/" target="_blank" class="text-blue-400 hover:underline">
+                Ticket Tool - Support Team
+            </a>
+            <span> | </span>
+            <a href="https://truckersmp.com/" target="_blank" class="text-blue-400 hover:underline">
+                TruckersMP - Dev0ps
+            </a>
+        </div>
+        <button onclick="toggleAboutMe()" class="mt-4 bg-red-500 px-4 py-2 rounded">Cool</button>
+    </div>
+    
+
+
+    <div id="hobbies" class="hidden mt-4 p-6 bg-gray-700 text-center rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold mb-4">Hobbies</h2>
+        <p class="text-lg">Coding, japan, car, space, navy, gym..</p>
+        <button onclick="toggleHobbies()" class="mt-4 bg-red-500 px-4 py-2 rounded">Cool</button>
+    </div>
+
+
+    <div id="website" class="hidden mt-4 p-6 bg-gray-700 text-center rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold mb-4">Website</h2>
+        <p>
+            A website that allows you to quickly generate a timestamp Discord of your choice 
+            (with help from my brother)
+            <a href="https://r.3v.fi/discord-timestamps/" target="_blank" class="text-blue-400 hover:underline">Click here to visit.<a>
+        </p>
+        <button onclick="toggleWebsite()" class="mt-4 bg-red-500 px-4 py-2 rounded">Cool</button>
+    </div>
+    
+
+    <script>
+        function toggleAboutMe() {
+            document.getElementById('about-me').classList.toggle('hidden');
+            document.getElementById('hobbies').classList.add('hidden');
+            document.getElementById('website').classList.add('hidden');
+            document.getElementById('main-content').classList.toggle('hidden');
+        }
+
+        function toggleHobbies() {
+            document.getElementById('hobbies').classList.toggle('hidden');
+            document.getElementById('about-me').classList.add('hidden');
+            document.getElementById('website').classList.add('hidden');
+            document.getElementById('main-content').classList.toggle('hidden');
+        }
+
+        function toggleWebsite() {
+            document.getElementById('website').classList.toggle('hidden');
+            document.getElementById('about-me').classList.add('hidden');
+            document.getElementById('hobbies').classList.add('hidden');
+            document.getElementById('main-content').classList.toggle('hidden');
+        }
+
+        const textArray = [
+            "French Developer", 
+            "A guy a 20 year old, cool..", 
+            "With a passion for coding !!"
+        ];
+        let index = 0, charIndex = 0;
+        let typingSpeed = 50;
+        let element = document.getElementById("typewriter");
+
+        function type() {
+            if (charIndex < textArray[index].length) {
+                element.innerHTML += textArray[index].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingSpeed);
+            } else {
+                setTimeout(erase, 1500);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                element.innerHTML = textArray[index].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, 30);
+            } else {
+                index = (index + 1) % textArray.length;
+                setTimeout(type, 800);
+            }
+        }
+
+        function toggleForm() {
+            const formContainer = document.getElementById('form-container');
+            const messageHeader = document.getElementById('message-header');
+            const formHeader = document.getElementById('form-header');
+
+            formContainer.classList.toggle('hidden');
+            formContainer.style.animation = 'scrollIn 1s ease-out forwards';
+
+            if (formContainer.classList.contains('hidden')) {
+                messageHeader.classList.add('hidden');
+            } else {
+                messageHeader.classList.remove('hidden');
+                formHeader.style.animation = 'fadeInText 1s ease-out forwards'; 
+            }
+        }
+
+        function sendMessage() {
+            const username = document.getElementById('username').value;
+            const message = document.getElementById('message').value;
+            const webhookURL = 'https://discord.com/api/webhooks/1336422902567931934/uzirCp9yh-yYz5aWqfWqNOtAH06axvjhUoSwZAGZEmTmDqDIYU2DulSbamE3XLmLk4cg';
+            
+            if (username && message) {
+                fetch(webhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content: `**${username}** : ${message}\n<@225349654974431232>` })
+                })
+                .then(response => {
+                    alert('Message envoyé !');
+                    document.getElementById('form-container').classList.add('hidden');
+                    document.getElementById('message-header').classList.add('hidden');
+                })
+                .catch(error => alert('There seems to have been an error sending the message, the site needs more volts..'));
+            } else {
+                alert('dude, don\'t be stupid, you have to fill in the fields..');
+            }
+        }
+
+        function closeForm() {
+    document.getElementById('form-container').classList.add('hidden');
+}
+
+        type();
+    </script>
+</body>
+</html>
