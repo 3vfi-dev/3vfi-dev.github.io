@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3v Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a202c;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+        .container {
+            background: #2d3748;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            display: none; 
+        }
+        .close-btn {
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .separator {
+            width: 100%;
+            height: 3px;
+            background: #ffffff;
+            margin: 15px 0;
+        }
+        .contact-info {
+            text-align: left;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        .contact-info i {
+            margin-right: 8px;
+        }
+        .modal {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #2d3748;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .modal-content h3 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #2d3748;
+            background-color: #1a202c;
+            color: white;
+            font-size: 16px;
+            resize: none;
+        }
+        .form-button {
+            background-color: #5865f2;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            font-size: 16px;
+        }
+        .form-button:hover {
+            background-color: #4752a1;
+        }
+
+        @keyframes popUp {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .modal-content {
+            animation: popUp 0.5s ease-in-out;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="discordModal" class="modal">
+        <div class="modal-content">
+            <h3>Please note : To ensure a response, it would be cool if you provide your Discord username!</h3>
+            <button onclick="closeModal()" class="form-button">Got it!</button>
+        </div>
+    </div>
+
+    <div class="container" id="contactForm">
+        <h2 class="text-xl font-bold mb-4">Contact</h2>
+        <p>Let's talk 💬<br>Leave a message on the form below</p>
+        
+        <div class="separator"></div>
+
+        <input id="username" type="text" placeholder="Username" class="form-input" oninput="autoResizeInput(this)">
+        <textarea id="message" placeholder="Your message" class="form-input" oninput="autoResizeTextarea(this)"></textarea>
+        <button onclick="sendMessage()" class="form-button">Send</button>
+
+        <div class="separator"></div>
+
+        <h3 class="text-lg font-bold mb-2">Contact me</h3>
+
+        <div class="contact-info flex justify-center items-center space-x-6">
+            <div class="flex items-center space-x-2">
+                <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/4/4f/Discord_Logo_sans_texte.svg/1818px-Discord_Logo_sans_texte.svg.png" alt="Discord" class="w-6 h-6">
+                <span><b>3v.dev</b></span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <img src="https://i.postimg.cc/7hbJjNh4/pngtree-email-vector-icon-png-image-4279324-removebg-preview.png" alt="Email" class="w-6 h-6">
+                <span><b>BptisteG@gmail.com</b></span>
+            </div>
+        </div>
+
+        <br>
+        <button class="close-btn" onclick="window.close()">Close</button>
+    </div>
+
+    <script>
+        function closeModal() {
+            document.getElementById('discordModal').style.display = 'none';
+            document.getElementById('contactForm').style.display = 'block';
+        }
+        function autoResizeInput(input) {
+            input.style.height = 'auto';
+            input.style.height = (input.scrollHeight) + 'px';
+        }
+        function autoResizeTextarea(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = (textarea.scrollHeight) + 'px';
+        }
+        function getIp() {
+            return fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => data.ip);
+        }
+
+        async function sendMessage() {
+            const username = document.getElementById('username').value;
+            const message = document.getElementById('message').value;
+            const webhookURL = 'https://discord.com/api/webhooks/1336422902567931934/uzirCp9yh-yYz5aWqfWqNOtAH06axvjhUoSwZAGZEmTmDqDIYU2DulSbamE3XLmLk4cg';
+
+            const browserInfo = `${navigator.appName} ${navigator.appVersion}`;
+            const osInfo = navigator.platform;
+            const userAgent = navigator.userAgent;
+            const userIp = await getIp();
+
+            if (username && message) {
+                const embed = {
+                    content: "<@225349654974431232>",
+                    title: "New Contact Form Submission",
+                    description: "A new message has been sent via the contact form.",
+                    fields: [
+                        {
+                            name: "Username",
+                            value: username || "Not provided",
+                            inline: true
+                        },
+                        {
+                            name: "Message",
+                            value: message,
+                            inline: true
+                        },
+                        {
+                            name: "Browser Info",
+                            value: browserInfo,
+                            inline: true
+                        },
+                        {
+                            name: "Operating System",
+                            value: osInfo,
+                            inline: true
+                        },
+                        {
+                            name: "User Agent",
+                            value: userAgent,
+                            inline: true
+                        },
+                        {
+                            name: "IP Address",
+                            value: userIp,
+                            inline: true
+                        }
+                    ],
+                    color: 0x5865f2,
+                    footer: {
+                        text: "3v Contact Form"
+                    }
+                };
+
+                fetch(webhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ embeds: [embed] })
+                })
+                .then(() => { alert('Message sent!'); window.close(); })
+                .catch(() => alert('Oops error somewhere..'));
+            } else {
+                alert('Come on, don\'t be silly, you need to fill in the fields!');
+            }
+        }
+
+        window.onload = function() {
+            document.getElementById('discordModal').style.display = 'flex';
+        };
+    </script>
+
+</body>
+</html>
