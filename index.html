@@ -1,4 +1,4 @@
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -175,11 +175,44 @@ h2 {
 
 <div id="clock-box" class="fixed bottom-4 right-4 bg-black text-gray-200 px-4 py-3 rounded-lg shadow-lg text-sm text-center font-mono border border-gray-700">
     <div class="flex items-center space-x-2">
-        <img src="https://i.imgur.com/3g31MQb.png" alt="Clock Icon" class="w-5 h-5">
+        <div id="clock-icon"></div>
         <div id="paris-time">Paris time : --:--:--</div>
     </div>
-    <div class="text-gray-500 text-xs">UTC +1 - Local Condition</div>
+    <div class="text-gray-500 text-xs">UTC +1 - Local Condition.</div>
 </div>
+
+<script>
+function updateClock() {
+    let now = new Date();
+    let parisTime = new Intl.DateTimeFormat("fr-FR", {
+        timeZone: "Europe/Paris",
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+    }).format(now);
+    
+    document.getElementById("paris-time").textContent = "Paris time : " + parisTime;
+    let hour = parseInt(new Intl.DateTimeFormat("fr-FR", {
+        timeZone: "Europe/Paris",
+        hour12: false,
+        hour: "2-digit"
+    }).format(now));
+
+    let iconHTML;
+    if (hour >= 20 || hour < 8) {
+        iconHTML = `<svg class="w-6 h-6 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M11.675 2.015a.998.998 0 0 0-.403.011C6.09 2.4 2 6.722 2 12c0 5.523 4.477 10 10 10 4.356 0 8.058-2.784 9.43-6.667a1 1 0 0 0-1.02-1.33c-.08.006-.105.005-.127.005h-.001l-.028-.002A5.227 5.227 0 0 0 20 14a8 8 0 0 1-8-8c0-.952.121-1.752.404-2.558a.996.996 0 0 0 .096-.428V3a1 1 0 0 0-.825-.985Z" clip-rule="evenodd"/></svg>`;
+    } else {
+        iconHTML = `<svg class="w-6 h-6 text-yellow-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0V3ZM6.343 4.929A1 1 0 0 0 4.93 6.343l1.414 1.414a1 1 0 0 0 1.414-1.414L6.343 4.929Zm12.728 1.414a1 1 0 0 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 1.414 1.414l1.414-1.414ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-9 4a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H3Zm16 0a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2ZM7.757 17.657a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414Zm9.9-1.414a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM13 19a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0v-2Z" clip-rule="evenodd"/></svg>`;
+    }
+    document.getElementById("clock-icon").innerHTML = iconHTML;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
 
 <body class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
     <div id="particles-js" class="absolute top-0 left-0 w-full h-full -z-10"></div>
@@ -228,14 +261,21 @@ h2 {
         <div class="flex space-x-8 mt-20 pb-4">
             <a href="https://github.com/3vfi-dev" target="_blank">
                 <div class="w-16 h-16 bg-gray-800 rounded-lg flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl">
-                    <img src="https://i.postimg.cc/63Kp4wNm/icons8-github-64.png" alt="GitHub" class="w-10 h-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.385.6.113.793-.26.793-.577v-2.234c-3.338.724-4.042-1.416-4.042-1.416-.547-1.387-1.334-1.756-1.334-1.756-1.091-.745.083-.729.083-.729 1.205.084 1.84 1.235 1.84 1.235 1.07 1.835 2.809 1.305 3.495.997.108-.775.418-1.305.762-1.605-2.665-.3-5.467-1.334-5.467-5.932 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.52.105-3.163 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.295-1.552 3.3-1.23 3.3-1.23.645 1.643.24 2.86.12 3.163.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.628-5.475 5.922.42.36.81 1.096.81 2.22v3.293c0 .317.195.694.8.577C20.565 22.092 24 17.598 24 12.297c0-6.627-5.373-12-12-12Z"></path>
+                    </svg>
                 </div>
             </a>
+        
             <a href="https://www.instagram.com/bptisteg/" target="_blank">
                 <div class="w-16 h-16 bg-gray-800 rounded-lg flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="w-10 h-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0-2A7.5 7.5 0 0 0 0 7.5v9A7.5 7.5 0 0 0 7.5 24h9A7.5 7.5 0 0 0 24 16.5v-9A7.5 7.5 0 0 0 16.5 0h-9ZM12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0-2a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM18.75 4a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"></path>
+                    </svg>
+                    
                 </div>
             </a>
+            
 <button id="open-profile" class="relative flex items-center gap-2 bg-[#111827] rounded-lg px-3 py-2 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
     <div class="relative w-12 h-12">
         <img id="button-avatar" class="rounded-full w-full h-full border-2 border-gray-700 shadow-md" 
@@ -264,7 +304,12 @@ h2 {
 <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/9/98/Discord_logo.svg/2560px-Discord_logo.svg.png" 
      alt="Discord Logo" 
      class="absolute top-1 left-3 h-5">
-<button id="close-popup" class="absolute top-1 right-3 text-gray-400 hover:text-white">×</button>
+     <button id="close-popup" class="absolute top-1 right-3 text-gray-400 hover:text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+    
 <div class="mt-20 flex items-center gap-4">
                     <div class="relative w-16 h-16 -mt-8">
                         <img class="rounded-full w-full h-full border-2 border-gray-700" 
@@ -276,7 +321,7 @@ h2 {
                     </div>
                     <div>
                         <div class="mt-8 flex items-center gap-2">
-                            <h2 class="text-lg font-bold leading-none">3v.</h2>
+                            <h3 class="text-lg font-bold leading-none">3v.</h3>
                             <a href="https://discord.com/users/225349654974431232" target="_blank" rel="noopener noreferrer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
                                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
@@ -287,7 +332,7 @@ h2 {
                                 </svg>
                             </a>
                         </div>
-                            <span class="text-gray-400 text-sm block">3v.dev</span>
+                            <span class="text-gray-400 text-sm block">@3v.dev</span>
                         </div>
                         <div class="mt-2 flex items-center gap-2 bg-gray-700 px-2 py-1 rounded-lg w-fit">
                             <img src="https://cdn.discordapp.com/clan-badges/1099742195218665626/fb6203517ebec5cbd8609216921dac45.png?size=16" alt="Logo" class="h-4 w-4">
@@ -301,6 +346,9 @@ h2 {
                 <img src="https://cdn.discordapp.com/badge-icons/7142225d31238f6387d9f09efaa02759.png" class="w-6 h-6" alt="HypeSquad Badge">
                 <img src="https://cdn.discordapp.com/badge-icons/6de6d34650760ba5551a79732e98ed60.png" class="w-6 h-6" alt="Username Badge">
                 <img src="https://cdn.discordapp.com/badge-icons/7d9ae358c8c5e118768335dbe68b4fb8.png" class="w-6 h-6" alt="Quête Accomplie Badge">
+            </div>
+            <div id="discord-status" class="mt-4 bg-gray-700 p-3 rounded-lg text-sm text-gray-300 hidden w-full">
+                <p id="status-text"></p>
             </div>
         </div>
     </div>
@@ -345,21 +393,24 @@ h2 {
         
         <div class="mt-4 flex flex-col sm:flex-row sm:space-x-4 sm:justify-center text-center">
     
-            <!-- TT -->
-            <a href="https://tickettool.xyz/" target="_blank" 
-               class="text-blue-400 hover:text-blue-300 font-semibold transition duration-300 transform hover:scale-105 inline-flex items-center space-x-2">
-                <img src="https://i.imgur.com/R1VejIU.png" alt="Ticket Tool Logo" class="w-6 h-6"> 
-                <span>Ticket Tool - Support Team</span>
-            </a>
-        
-            <span class="hidden sm:inline text-gray-500"> | </span>
-        
-            <!-- TruckersMP -->
-            <a href="https://truckersmp.com/" target="_blank" 
-               class="text-blue-400 hover:text-blue-300 font-semibold transition duration-300 transform hover:scale-105 inline-flex items-center space-x-2">
-                <img src="https://i.postimg.cc/tTXS2Lbf/truckersmp-206580.webp" alt="TruckersMP Logo" class="w-6 h-6"> 
-                <span>TruckersMP - DevOps</span>
-            </a>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+                <!-- Ticket Tool -->
+                <a href="https://tickettool.xyz/" target="_blank" 
+                   class="text-blue-400 hover:text-blue-300 font-semibold transition duration-300 transform hover:scale-105 flex items-center space-x-2">
+                    <img src="https://i.imgur.com/R1VejIU.png" alt="Ticket Tool Logo" class="w-6 h-6"> 
+                    <span>Ticket Tool - Support Team</span>
+                </a>
+            
+                <span class="hidden sm:inline text-gray-500"> | </span>
+            
+                <!-- TruckersMP -->
+                <a href="https://truckersmp.com/" target="_blank" 
+                   class="text-blue-400 hover:text-blue-300 font-semibold transition duration-300 transform hover:scale-105 flex items-center space-x-2">
+                    <img src="https://i.postimg.cc/tTXS2Lbf/truckersmp-206580.webp" alt="TruckersMP Logo" class="w-6 h-6"> 
+                    <span>TruckersMP - DevOps</span>
+                </a>
+            </div>
+            
         
         </div>    
         <button onclick="toggleAboutMe()" 
@@ -409,16 +460,46 @@ h2 {
         </button>
     </div>
 
+<div id="custom-alert" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-gray-800 p-5 rounded-lg shadow-lg text-white w-80 text-center relative">
+        <button id="close-alert" class="absolute top-2 right-2 text-gray-400 hover:text-white">
+        </button>
+        <div class="flex items-center justify-center gap-2">
+            <p class="text-md font-semibold">Close the Discord profile first to use other buttons.</p>
+        </div>
+        <button id="confirm-alert" class="mt-4 px-4 py-2 bg-blue-500 rounded-md hover:bg-blue-600 transition">
+            OK
+        </button>
+    </div>
+</div>
+
+
     <script>
 function checkProfilePopup(action) {
     const profilePopup = document.getElementById('profile-popup');
+    
     if (!profilePopup.classList.contains('hidden')) {
-        alert("Close the Discord profile first using an '×' in the top right corner to use other buttons.");
+        showAlert(); 
         return false;
     }
+    
     action();
     return true;
 }
+
+function showAlert() {
+    const alertBox = document.getElementById("custom-alert");
+    alertBox.classList.remove("hidden");
+}
+
+document.getElementById("close-alert").addEventListener("click", () => {
+    document.getElementById("custom-alert").classList.add("hidden");
+});
+document.getElementById("confirm-alert").addEventListener("click", () => {
+    document.getElementById("custom-alert").classList.add("hidden");
+});
+
+
 
 function toggleAboutMe() {
     checkProfilePopup(() => {
@@ -591,53 +672,118 @@ function toggleWebsite() {
 </script>
 
 <script>
+    let lastStatus = null; 
+    let lastAvatarUrl = null; 
+
     async function updateDiscordStatus() {
         try {
             const response = await fetch("https://api.lanyard.rest/v1/users/225349654974431232");
+            if (!response.ok) throw new Error(`Lanyard API a renvoyé une erreur : ${response.status}`);
+
             const data = await response.json();
-            
-            if (data.success) {
-                const discord = data.data;
-                const avatarUrl = `https://cdn.discordapp.com/avatars/${discord.discord_user.id}/${discord.discord_user.avatar}.webp?size=1024`;
-                let status = discord.discord_status;
-                
-                const validStatuses = ["online", "idle", "dnd", "offline"];
-                if (!validStatuses.includes(status)) {
-                    status = "offline"; 
-                }
-                document.getElementById("button-avatar").src = avatarUrl;
-                const statusIndicator = document.getElementById("status-indicator");
-                if (statusIndicator) {
-                    statusIndicator.setAttribute("fill", getStatusColor(status));
-                }
-                const profileAvatar = document.querySelector("#profile-popup img.rounded-full");
-                if (profileAvatar) {
-                    profileAvatar.src = avatarUrl;
-                }
-                const profileStatusIndicator = document.querySelector("#profile-popup svg #status-indicator");
-                if (profileStatusIndicator) {
-                    profileStatusIndicator.setAttribute("fill", getStatusColor(status));
-                }
-    
+            if (!data.success || !data.data) throw new Error("Lanyard API a renvoyé une erreur.");
+
+            const discord = data.data;
+            const avatarUrl = `https://cdn.discordapp.com/avatars/${discord.discord_user.id}/${discord.discord_user.avatar}.webp?size=1024`;
+            let status = discord.discord_status;
+            const activities = discord.activities || [];
+
+            const validStatuses = ["online", "idle", "dnd", "offline"];
+            if (!validStatuses.includes(status)) status = "offline";
+
+            const buttonAvatar = document.getElementById("button-avatar");
+            const profileAvatar = document.querySelector("#profile-popup img.rounded-full");
+
+            if (avatarUrl !== lastAvatarUrl && buttonAvatar) {
+                buttonAvatar.src = avatarUrl;
+                if (profileAvatar) profileAvatar.src = avatarUrl;
+                lastAvatarUrl = avatarUrl;
             }
+
+            if (status !== lastStatus) {
+                const statusIndicator = document.getElementById("status-indicator");
+                const profileStatusIndicator = document.querySelector("#profile-popup svg #status-indicator");
+
+                if (statusIndicator) statusIndicator.setAttribute("fill", getStatusColor(status));
+                if (profileStatusIndicator) profileStatusIndicator.setAttribute("fill", getStatusColor(status));
+
+                lastStatus = status;
+            }
+
+            let statusText = "Aucune activité en cours";
+            let activeActivities = activities.filter(activity => activity.type === 0 || activity.name === "Spotify");
+
+            if (activeActivities.length > 0) {
+                statusText = activeActivities.map(activity => {
+                    if (activity.name === "Spotify") {
+                        let start = activity.timestamps?.start || 0;
+                        let end = activity.timestamps?.end || 0;
+                        let currentTime = Date.now();
+                        let elapsed = Math.floor((currentTime - start) / 1000);
+                        let duration = Math.floor((end - start) / 1000);
+                        let elapsedMinutes = Math.floor(elapsed / 60);
+                        let elapsedSeconds = elapsed % 60;
+                        let durationMinutes = Math.floor(duration / 60);
+                        let durationSeconds = duration % 60;
+
+                        return `
+                            <div class="flex items-center space-x-4">
+                                <img src="https://i.scdn.co/image/${activity.assets.large_image.replace('spotify:', '')}" class="w-16 h-16 rounded-lg">
+                                <div><p class="text-sm text-gray-400 flex items-center gap-2">
+                                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/spotify-white-icon.png" 
+                                alt="Spotify" class="w-5 h-5">Listening to Spotify</p>
+                                    <p class="text-md font-semibold">${activity.details}</p>
+                                    <p class="text-sm text-gray-400">${activity.state}</p>
+                                    <p class="text-xs text-gray-500 flex items-center gap-1">
+                                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                    d="M8 16.881V7.119a1 1 0 0 1 1.636-.772l5.927 4.881a1 1 0 0 1 0 1.544l-5.927 4.88A1 1 0 0 1 8 16.882Z"/></svg> 
+                                    ${elapsedMinutes}:${elapsedSeconds.toString().padStart(2, "0")} / ${durationMinutes}:${durationSeconds.toString().padStart(2, "0")}
+                                    </p>
+                            </div>`;
+                    } else {
+                        return `
+                            <div class="flex items-center space-x-4">
+                                <img src="https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png" class="w-16 h-16 rounded-lg">
+                                <div>
+                                <p class="text-sm text-gray-400 flex items-center gap-2">
+                                <img src="https://i.imgur.com/ZpnVegp.png" alt="Manette" class="w-5 h-4">Playing</p>
+                                    <p class="text-md font-semibold">${activity.name}</p>
+                                    ${activity.details ? `<p class="text-sm text-gray-400">${activity.details}</p>` : ""}
+                                    ${activity.state ? `<p class="text-sm text-gray-400">${activity.state}</p>` : ""}
+                                </div>
+                            </div>
+                        `;
+                    }
+                }).join('<div class="w-full border-t border-gray-600 my-2"></div>');
+            }
+            const statusContainer = document.getElementById("discord-status");
+            const statusTextElement = document.getElementById("status-text");
+
+            if (statusContainer && statusTextElement) {
+                statusTextElement.innerHTML = statusText;
+                statusContainer.classList.toggle("hidden", activeActivities.length === 0);
+            }
+
         } catch (error) {
             console.error("Erreur lors de la récupération du statut Discord :", error);
         }
     }
-    
+
     function getStatusColor(status) {
-        switch (status) {
-            case "online": return "#23a55a";
-            case "idle": return "#f0b232";
-            case "dnd": return "#f23f43";
-            case "offline": return "#747f8d";
-            default: return "#747f8d";
-        }
+        const statusColors = {
+            online: "#23a55a",
+            idle: "#f0b232",
+            dnd: "#f23f43",
+            offline: "#747f8d"
+        };
+        return statusColors[status] || "#747f8d";
     }
-    
+
     updateDiscordStatus();
-    setInterval(updateDiscordStatus, 3000);
-    </script>
+    setInterval(updateDiscordStatus, 1000);
+</script>
+
 
 </body>
 </html>
