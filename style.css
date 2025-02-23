@@ -1,0 +1,59 @@
+@keyframes scrollIn {
+    0% {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes wave {
+    0%, 50% { transform: rotate(0deg); }
+    60% { transform: rotate(20deg); }
+    70% { transform: rotate(-10deg); }
+    80% { transform: rotate(20deg); }
+    90% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); } 
+}
+
+#wave-emoji {
+    display: inline-block;
+    animation: wave 2.5s infinite ease-in-out; 
+    transform-origin: 70% 70%;
+}
+
+
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0d0d0d!important;
+    z-index: -1;
+}
+
+#clock-box {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0.9;
+    font-weight: bold;
+    min-width: 120px;
+}
+#clock-box:hover {
+    opacity: 1;
+}
+.text-xs {
+    font-size: 0.75rem;
+}
