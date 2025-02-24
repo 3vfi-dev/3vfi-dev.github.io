@@ -731,11 +731,13 @@ function toggleWebsite() {
         <div class="flex items-center space-x-4">
             <img src="https://i.scdn.co/image/${activity.assets.large_image.replace('spotify:', '')}" class="w-16 h-16 rounded-lg">
             <div>
-                <p class="text-sm text-gray-400 flex items-center gap-2">
-                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/spotify-white-icon.png" 
-                    alt="Spotify" class="w-5 h-5">Listening to Spotify
-                </p>
-                <p class="text-md font-semibold flex items-center gap-2">
+<p class="text-sm text-gray-400 flex items-center gap-2">
+    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0C5.372 0 0 5.372 0 12c0 6.628 5.372 12 12 12s12-5.372 12-12c0-6.628-5.372-12-12-12zm5.432 17.198a.747.747 0 0 1-1.024.248c-2.796-1.711-6.319-2.097-10.472-1.144a.75.75 0 0 1-.32-1.466c4.47-1.002 8.318-.565 11.392 1.298.35.214.46.673.248 1.064zm1.487-3.31a.934.934 0 0 1-1.28.31c-3.2-1.96-8.08-2.526-11.875-1.377a.937.937 0 0 1-1.173-.642.935.935 0 0 1 .64-1.172c4.37-1.314 9.756-.69 13.41 1.603.44.271.578.853.278 1.278zm.169-3.345c-3.87-2.29-10.238-2.498-13.794-1.377a1.126 1.126 0 0 1-1.415-.772 1.127 1.127 0 0 1 .77-1.415c4.122-1.255 11.135-1.02 15.563 1.615.53.314.703 1.003.39 1.533-.312.53-1.002.703-1.533.39z"/>
+    </svg>
+    Listening to Spotify
+</p>
+<p class="text-md font-semibold flex items-center gap-2">
                     ${activity.details}
                     <a href="${trackUrl}" target="_blank" class="text-gray-400 hover:text-white transition">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
