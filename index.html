@@ -710,53 +710,68 @@ function toggleWebsite() {
                 lastStatus = status;
             }
 
-            let statusText = "Aucune activité en cours";
+            let statusText = "No current activity";
             let activeActivities = activities.filter(activity => activity.type === 0 || activity.name === "Spotify");
-
             if (activeActivities.length > 0) {
                 statusText = activeActivities.map(activity => {
-                    if (activity.name === "Spotify") {
-                        let start = activity.timestamps?.start || 0;
-                        let end = activity.timestamps?.end || 0;
-                        let currentTime = Date.now();
-                        let elapsed = Math.floor((currentTime - start) / 1000);
-                        let duration = Math.floor((end - start) / 1000);
-                        let elapsedMinutes = Math.floor(elapsed / 60);
-                        let elapsedSeconds = elapsed % 60;
-                        let durationMinutes = Math.floor(duration / 60);
-                        let durationSeconds = duration % 60;
+            if (activity.name === "Spotify") {
+            let start = activity.timestamps?.start || 0;
+            let end = activity.timestamps?.end || 0;
+            let currentTime = Date.now();
+            let elapsed = Math.floor((currentTime - start) / 1000);
+            let duration = Math.floor((end - start) / 1000);
+            let elapsedMinutes = Math.floor(elapsed / 60);
+            let elapsedSeconds = elapsed % 60;
+            let durationMinutes = Math.floor(duration / 60);
+            let durationSeconds = duration % 60;
 
-                        return `
-                            <div class="flex items-center space-x-4">
-                                <img src="https://i.scdn.co/image/${activity.assets.large_image.replace('spotify:', '')}" class="w-16 h-16 rounded-lg">
-                                <div><p class="text-sm text-gray-400 flex items-center gap-2">
-                                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/spotify-white-icon.png" 
-                                alt="Spotify" class="w-5 h-5">Listening to Spotify</p>
-                                    <p class="text-md font-semibold">${activity.details}</p>
-                                    <p class="text-sm text-gray-400">${activity.state}</p>
-                                    <p class="text-xs text-gray-500 flex items-center gap-1">
-                                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                    d="M8 16.881V7.119a1 1 0 0 1 1.636-.772l5.927 4.881a1 1 0 0 1 0 1.544l-5.927 4.88A1 1 0 0 1 8 16.882Z"/></svg> 
-                                    ${elapsedMinutes}:${elapsedSeconds.toString().padStart(2, "0")} / ${durationMinutes}:${durationSeconds.toString().padStart(2, "0")}
-                                    </p>
-                            </div>`;
-                    } else {
-                        return `
-                            <div class="flex items-center space-x-4">
-                                <img src="https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png" class="w-16 h-16 rounded-lg">
-                                <div>
-                                <p class="text-sm text-gray-400 flex items-center gap-2">
-                                <img src="https://i.imgur.com/ZpnVegp.png" alt="Manette" class="w-5 h-4">Playing</p>
-                                    <p class="text-md font-semibold">${activity.name}</p>
-                                    ${activity.details ? `<p class="text-sm text-gray-400">${activity.details}</p>` : ""}
-                                    ${activity.state ? `<p class="text-sm text-gray-400">${activity.state}</p>` : ""}
+    let trackUrl = `https://open.spotify.com/track/${activity.sync_id}`;
+
+    return `
+        <div class="flex items-center space-x-4">
+            <img src="https://i.scdn.co/image/${activity.assets.large_image.replace('spotify:', '')}" class="w-16 h-16 rounded-lg">
+            <div>
+                <p class="text-sm text-gray-400 flex items-center gap-2">
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/spotify-white-icon.png" 
+                    alt="Spotify" class="w-5 h-5">Listening to Spotify
+                </p>
+                <p class="text-md font-semibold flex items-center gap-2">
+                    ${activity.details}
+                    <a href="${trackUrl}" target="_blank" class="text-gray-400 hover:text-white transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-arrow-out-up-right 
+                        text-zinc-400 hover:text-white h-4 w-4 cursor-pointer transition">
+                            <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path>
+                            <path d="m21 3-9 9"></path>
+                            <path d="M15 3h6v6"></path>
+                        </svg>
+                    </a>
+                </p>
+                <p class="text-sm text-gray-400">${activity.state}</p>
+                <p class="text-xs text-gray-500 flex items-center gap-1">
+                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                        d="M8 16.881V7.119a1 1 0 0 1 1.636-.772l5.927 4.881a1 1 0 0 1 0 1.544l-5.927 4.88A1 1 0 0 1 8 16.882Z"/>
+                    </svg> 
+                    ${elapsedMinutes}:${elapsedSeconds.toString().padStart(2, "0")} / ${durationMinutes}:${durationSeconds.toString().padStart(2, "0")}
+                </p>
+            </div>
+        </div>`;
+} else {
+    return `
+        <div class="flex items-center space-x-4">
+            <img src="https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png" class="w-16 h-16 rounded-lg">
+            <div>
+                <p class="text-sm text-gray-400 flex items-center gap-2">
+                    <img src="https://i.imgur.com/ZpnVegp.png" alt="Manette" class="w-5 h-4">Playing</p>
+                        <p class="text-md font-semibold">${activity.name}</p>
+                                ${activity.details ? `<p class="text-sm text-gray-400">${activity.details}</p>` : ""}
+                                ${activity.state ? `<p class="text-sm text-gray-400">${activity.state}</p>` : ""}
                                 </div>
-                            </div>
-                        `;
-                    }
+                            </div>`;}
                 }).join('<div class="w-full border-t border-gray-600 my-2"></div>');
             }
+
             const statusContainer = document.getElementById("discord-status");
             const statusTextElement = document.getElementById("status-text");
 
@@ -783,7 +798,5 @@ function toggleWebsite() {
     updateDiscordStatus();
     setInterval(updateDiscordStatus, 1000);
 </script>
-
-
 </body>
 </html>
