@@ -376,19 +376,20 @@ updateClock();
     <script>
 document.getElementById('open-profile').addEventListener('click', function() {
     document.getElementById('profile-popup').classList.remove('hidden');
-    
-    document.querySelectorAll('.hide-on-profile').forEach(element => {
-        element.classList.add('hidden-when-profile-open');
+
+    document.querySelectorAll('.hide-on-profile').forEach(element => { 
+        element.classList.add('hidden');
     });
 });
 
 document.getElementById('close-popup').addEventListener('click', function() {
     document.getElementById('profile-popup').classList.add('hidden');
-    
-    document.querySelectorAll('.hide-on-profile').forEach(element => {
-        element.classList.remove('hidden-when-profile-open');
+
+    document.querySelectorAll('.hide-on-profile').forEach(element => { 
+        element.classList.remove('hidden');
     });
 });
+
     </script>
 
             <!-- about me -->
