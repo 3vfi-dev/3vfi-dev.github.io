@@ -33,8 +33,6 @@
     transform-origin: 70% 70%;
 }
 
-
-
 #particles-js {
     position: fixed;
     top: 0;
@@ -50,6 +48,8 @@
     opacity: 0.9;
     font-weight: bold;
     min-width: 120px;
+    position: fixed;
+    z-index: 10;
 }
 #clock-box:hover {
     opacity: 1;
@@ -57,3 +57,9 @@
 .text-xs {
     font-size: 0.75rem;
 }
+
+
+.hidden-when-profile-open {
+    display: none !important;
+}
+
