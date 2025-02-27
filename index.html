@@ -226,7 +226,7 @@ updateClock();
                     Hobbies
                 </button>
                 <button onclick="toggleWebsite()" class="bg-black text-gray-200 border border-gray-700 px-4 py-2 rounded transition duration-300 hover:bg-gray-800 hover:scale-105 hover:shadow-lg hover:shadow-gray-700 font-mono">
-                    Website
+                    Project
                 </button>                
             </div>
         </div>
@@ -240,19 +240,6 @@ updateClock();
             <span class="text-xs text-gray-500 block" style="transform: translateX(145px);" id="hehim">he/him</span>
         </h2>
              
-        
-        <style>
-            #hehim {
-                display: block;
-            }
-            @media (max-width: 640px) {
-                #hehim {
-                    display: none; 
-                }
-            }
-        </style>
-        
-
         <div class="text-2xl text-center w-2/3 mb-6">
             <span id="typewriter" class="cursor"></span>
         </div>
@@ -295,50 +282,50 @@ updateClock();
         </div>
     </div>
     <div id="profile-popup" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden">
-        <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-white w-[40rem] min-h-[250px] relative border border-gray-700">
+        <div class="bg-[#111827] p-6 rounded-lg shadow-lg text-white w-[40rem] min-h-[250px] relative border border-gray-700">
             <div class="absolute top-7 left-0 w-full h-24">    
-                    <img src="https://cdn.discordapp.com/banners/225349654974431232/1501cc65ab7f87d232e07e931cbb8dd2.webp?size=1024&format=webp&width=1126&height=0" 
-                         alt="Bannière" 
-                         class="w-full h-full object-cover rounded-t-lg">
+                <img src="https://cdn.discordapp.com/banners/225349654974431232/1501cc65ab7f87d232e07e931cbb8dd2.webp?size=1024&format=webp&width=1126&height=0" 
+                     alt="Bannière" 
+                     class="w-full h-full object-cover rounded-t-lg">
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/9/98/Discord_logo.svg/2560px-Discord_logo.svg.png" 
+                 alt="Discord Logo" 
+                 class="absolute top-1 left-3 h-5">
+            <button id="close-popup" class="absolute top-1 right-3 text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            
+            <div class="mt-20 flex items-center gap-4">
+                <div class="relative w-16 h-16 -mt-8">
+                    <img class="rounded-full w-full h-full border-2 border-gray-700" 
+                         src="https://cdn.discordapp.com/avatars/225349654974431232/ebeb8eb4ec4988ab99754f3f7dc44c1f.webp?size=1024" 
+                         alt="Avatar">
+                    <svg class="absolute bottom-0 right-0 w-4 h-4 border-2 border-gray-800 rounded-full" viewBox="0 0 10 10">
+                        <rect id="status-indicator" width="10" height="10" x="0" y="0" fill="#747f8d"></rect>
+                    </svg>
                 </div>
-<img src="https://upload.wikimedia.org/wikipedia/fr/thumb/9/98/Discord_logo.svg/2560px-Discord_logo.svg.png" 
-     alt="Discord Logo" 
-     class="absolute top-1 left-3 h-5">
-     <button id="close-popup" class="absolute top-1 right-3 text-gray-400 hover:text-white">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-    </button>
-    
-<div class="mt-20 flex items-center gap-4">
-                    <div class="relative w-16 h-16 -mt-8">
-                        <img class="rounded-full w-full h-full border-2 border-gray-700" 
-                            src="https://cdn.discordapp.com/avatars/225349654974431232/ebeb8eb4ec4988ab99754f3f7dc44c1f.webp?size=1024" 
-                            alt="Avatar">
-                            <svg class="absolute bottom-0 right-0 w-4 h-4 border-2 border-gray-800 rounded-full" viewBox="0 0 10 10">
-                                <rect id="status-indicator" width="10" height="10" x="0" y="0" fill="#747f8d"></rect>
+                <div>
+                    <div class="mt-8 flex items-center gap-2">
+                        <h3 class="text-lg font-bold leading-none">3v.</h3>
+                        <a href="https://discord.com/users/225349654974431232" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                                 class="lucide lucide-square-arrow-out-up-right text-zinc-400 hover:text-white h-4 w-4 cursor-pointer transition">
+                                <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path>
+                                <path d="m21 3-9 9"></path>
+                                <path d="M15 3h6v6"></path>
                             </svg>
+                        </a>
                     </div>
-                    <div>
-                        <div class="mt-8 flex items-center gap-2">
-                            <h3 class="text-lg font-bold leading-none">3v.</h3>
-                            <a href="https://discord.com/users/225349654974431232" target="_blank" rel="noopener noreferrer">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                                     class="lucide lucide-square-arrow-out-up-right text-zinc-400 hover:text-white h-4 w-4 cursor-pointer transition">
-                                    <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path>
-                                    <path d="m21 3-9 9"></path>
-                                    <path d="M15 3h6v6"></path>
-                                </svg>
-                            </a>
-                        </div>
-                            <span class="text-gray-400 text-sm block">@3v.dev</span>
-                        </div>
-                        <div class="mt-2 flex items-center gap-2 bg-gray-700 px-2 py-1 rounded-lg w-fit">
-                            <img src="https://cdn.discordapp.com/clan-badges/1099742195218665626/fb6203517ebec5cbd8609216921dac45.png?size=16" alt="Logo" class="h-4 w-4">
-                            <span class="text-gray-300 text-xs">Meow</span>
-                        </div>   
+                    <span class="text-gray-400 text-sm block">@3v.dev</span>
                 </div>
+                <div class="mt-2 flex items-center gap-2 bg-gray-700 px-2 py-1 rounded-lg w-fit">
+                    <img src="https://cdn.discordapp.com/clan-badges/1099742195218665626/fb6203517ebec5cbd8609216921dac45.png?size=16" alt="Logo" class="h-4 w-4">
+                    <span class="text-gray-300 text-xs">Meow</span>
+                </div>   
+            </div>
             <div class="mt-4 flex items-center gap-2 flex-wrap">
                 <img src="https://cdn.discordapp.com/badge-icons/0334688279c8359120922938dcb1d6f8.png" class="w-6 h-6" alt="Nitro Badge">
                 <img src="https://cdn.discordapp.com/badge-icons/011940fd013da3f7fb926e4a1cd2e618.png" class="w-6 h-6" alt="Boost Badge">
@@ -352,6 +339,7 @@ updateClock();
             </div>
         </div>
     </div>
+    
 
     <script>
         document.getElementById('open-profile').addEventListener('click', function() {
@@ -364,101 +352,135 @@ updateClock();
     </script>
 
             <!-- about me -->
-    <div id="about-me" class="hidden mt-4 p-6 bg-gray-800 text-center rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-        <h2 class="text-4xl font-extrabold text-white mb-6">About Me</h2>
-        <div class="border-t-2 border-white mb-6"></div>
-        <div class="flex flex-col items-center text-lg text-gray-300 mb-6">
-            <p class="text-2xl font-bold">Ayo! 👋🏻</p>
-            <p class="mt-6 text-center">
-                A guy, 20 years old, cool.. Discord bot developer proficient in JS, Python, and other fun stuff.. with a strong passion for coding !! 
-                <br><br>
-                <p class="text-lg text-gray-300">
-                    Training underway, soon embarking on an incredible journey with the 
-                    <span class="font-semibold text-blue-400 inline-flex items-center">
-                        <a href="https://www.defense.gouv.fr/marine" target="_blank" class="hover:underline">
-                            French Navy
+            <div id="about-me" class="hidden mt-6 p-8 bg-gray-900 text-white rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-3xl font-bold flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" 
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                        class="text-blue-400">
+                        <path d="M2 7h20"></path>
+                        <path d="M2 12h20"></path>
+                        <path d="M2 17h20"></path>
+                    </svg>
+                        About Me
+                    </h2>
+                    <button onclick="toggleAboutMe()" class="text-red-400 hover:text-red-300 transition-colors">
+                        ✖
+                    </button>
+                </div>
+                <div class="border-t border-gray-700 mb-6"></div>
+                <div class="flex flex-col items-center text-lg text-gray-300 mb-6">
+                    <p class="text-2xl font-bold">Ayo! 👋🏻</p>
+                    <p class="mt-6 text-center">
+                        A guy, 20 years old, cool.. Discord bot developer proficient in JS, Python, and other fun stuff.. with a strong passion for coding !! 
+                        <br><br>
+                        <p class="text-lg text-gray-300">
+                            Training underway, soon embarking on an incredible journey with the 
+                            <span class="font-semibold text-blue-400 inline-flex items-center">
+                                <a href="https://www.defense.gouv.fr/marine" target="_blank" class="hover:underline">
+                                    French Navy
+                                </a>
+                                <img src="https://flagcdn.com/w40/fr.png" alt="France Flag" class="w-5 h-5 ml-1">
+                            </span>                                    
+                    </p>
+                </div>
+                
+                <img src="https://i.postimg.cc/ncFQ8ps2/ebeb8eb4ec4988ab99754f3f7dc44c1f.webp" 
+                     alt="Salute Image" 
+                     class="mt-6 mx-auto w-64 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105">
+                
+                     <div class="text-lg text-gray-300 mt-6 text-center">
+                        <p class="text-2xl font-bold">You can also find me on:</p>
+                    </div>
+                
+                <div class="mt-4 flex flex-col sm:flex-row sm:space-x-4 sm:justify-center text-center">
+                    <div class="flex flex-col items-center justify-center gap-3 text-center">
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                            <a href="https://tickettool.xyz/" target="_blank" 
+                               class="text-blue-400 hover:text-blue-300 font-semibold transition duration-300 transform hover:scale-105 flex items-center space-x-2">
+                                <img src="https://i.imgur.com/R1VejIU.png" alt="Ticket Tool Logo" class="w-6 h-6"> 
+                                <span>Ticket Tool - Support Team</span>
+                            </a>
+                            <span class="hidden sm:inline text-gray-500"> | </span>
+                            <a href="https://truckersmp.com/" target="_blank" 
+                               class="text-blue-400 hover:text-blue-300 font-semibold transition duration-300 transform hover:scale-105 flex items-center space-x-2">
+                                <img src="https://i.postimg.cc/tTXS2Lbf/truckersmp-206580.webp" alt="TruckersMP Logo" class="w-6 h-6"> 
+                                <span>TruckersMP - DevOps</span>
+                            </a>
+                        </div>
+                        <a href="https://altvine.com/" target="_blank" 
+                           class="text-blue-400 hover:text-blue-300 font-semibold transition duration-300 transform hover:scale-105 flex items-center space-x-2 mt-3">
+                            <img src="https://i.imgur.com/vX6nbRl.png" alt="Altvine Logo" class="w-6 h-6"> 
+                            <span>Altvine - Support Team</span>
                         </a>
-                        <img src="https://flagcdn.com/w40/fr.png" alt="France Flag" class="w-5 h-5 ml-1">
-                    </span>                                   
-            </p>
-        </div>
-        
-        <img src="https://i.postimg.cc/ncFQ8ps2/ebeb8eb4ec4988ab99754f3f7dc44c1f.webp" 
-             alt="Salute Image" 
-             class="mt-6 mx-auto w-64 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105">
-        
-        <p class="text-lg text-gray-300 mt-6">
-            <p class="text-2xl font-bold">You can also find me on:</p>
-        </p>
-        
-        <div class="mt-4 flex flex-col sm:flex-row sm:space-x-4 sm:justify-center text-center">
-    
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
-                <!-- Ticket Tool -->
-                <a href="https://tickettool.xyz/" target="_blank" 
-                   class="text-blue-400 hover:text-blue-300 font-semibold transition duration-300 transform hover:scale-105 flex items-center space-x-2">
-                    <img src="https://i.imgur.com/R1VejIU.png" alt="Ticket Tool Logo" class="w-6 h-6"> 
-                    <span>Ticket Tool - Support Team</span>
-                </a>
-            
-                <span class="hidden sm:inline text-gray-500"> | </span>
-            
-                <!-- TruckersMP -->
-                <a href="https://truckersmp.com/" target="_blank" 
-                   class="text-blue-400 hover:text-blue-300 font-semibold transition duration-300 transform hover:scale-105 flex items-center space-x-2">
-                    <img src="https://i.postimg.cc/tTXS2Lbf/truckersmp-206580.webp" alt="TruckersMP Logo" class="w-6 h-6"> 
-                    <span>TruckersMP - DevOps</span>
-                </a>
+                    </div>
+                </div>    
             </div>
             
-        
-        </div>    
-        <button onclick="toggleAboutMe()" 
-        class="mt-6 bg-red-600 hover:bg-red-500 px-5 py-2 text-white font-semibold rounded-lg shadow-md 
-               transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-red-500/50 
-               active:scale-95">
-    Cool
-</button>
 
     </div>
-                <!-- hobbies -->
-    <div id="hobbies" class="hidden mt-4 p-6 bg-gray-800 text-center rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-    
-        <h2 class="text-4xl font-extrabold text-white mb-6">Hobbies</h2>
-        
-        <div class="border-t-2 border-white mb-6"></div>
-        <p class="text-lg text-gray-300 mb-6">Coding, Japan, Cars, Space, Navy, Gym... 😍</p>
-    
-        <button onclick="toggleHobbies();" 
-        class="mt-6 bg-red-600 hover:bg-red-500 px-5 py-2 text-white font-semibold rounded-lg shadow-md 
-        transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-red-500/50 
-        active:scale-95">
-            Cool
-        </button>
-    
-    </div>
-            <!-- website -->
-    <div id="website" class="hidden mt-4 p-6 bg-gray-800 text-center rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-        <h2 class="text-4xl font-extrabold text-white mb-6">Website</h2>
-        <div class="border-t-2 border-white mb-6"></div>
-        <p class="text-lg text-gray-300 mb-6">
-            A website that helps you easily generate a Discord timestamp of your choice
-            (with help from my brother).
-        </p>
-        <div class="flex justify-center mb-6">
-            <img src="https://i.imgur.com/8xnRzDd.png" alt="Website Preview" class="rounded-xl shadow-xl w-full max-w-lg border-2 border-gray-500 transition-transform duration-300 hover:scale-105">
-        </div>
-        <a href="https://r.3v.fi/discord-timestamps/" target="_blank" 
-           class="text-blue-400 hover:underline text-lg font-semibold block mb-6 transition-colors duration-300 hover:text-blue-500">
-            CLICK HERE TO VISIT
-        </a>
-        <button onclick="toggleWebsite()"
-        class="mt-6 bg-red-600 hover:bg-red-500 px-5 py-2 text-white font-semibold rounded-lg shadow-md 
-        transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-red-500/50 
-        active:scale-95">
-            Cool
+<!-- hobbies -->
+<div id="hobbies" class="hidden mt-8 p-12 bg-gray-900 text-white rounded-3xl shadow-lg transition-all duration-300 transform hover:scale-110 hover:shadow-xl">
+    <div class="flex items-center justify-between mb-8">
+        <h2 class="text-5xl font-bold flex items-center gap-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" 
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                class="text-blue-400">
+                <path d="M2 7h20"></path>
+                <path d="M2 12h20"></path>
+                <path d="M2 17h20"></path>
+            </svg>
+            My Hobbies
+        </h2>
+        <button onclick="toggleHobbies()" class="text-red-400 hover:text-red-300 transition-colors text-xl">
+            ✖
         </button>
     </div>
+    <div class="border-t border-gray-700 mb-8"></div>
+    <p class="text-xl text-gray-300 mb-6">
+        Coding, Japan, Cars, Space, Navy, Gym... 😍
+    </p>
+</div>
+
+                
+    
+    </div>
+<!-- website -->
+<div id="website" class="hidden mt-6 p-10 bg-gray-900 text-white rounded-3xl shadow-lg transition-all duration-300 transform hover:scale-110 hover:shadow-xl">
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-4xl font-bold flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" 
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                class="text-blue-400">
+                <path d="M2 7h20"></path>
+                <path d="M2 12h20"></path>
+                <path d="M2 17h20"></path>
+            </svg>
+            Discord Timestamp Generator
+        </h2>
+        <button onclick="toggleWebsite()" class="text-red-400 hover:text-red-300 transition-colors text-xl">
+            ✖
+        </button>
+    </div>
+    <div class="border-t border-gray-700 mb-8"></div>
+    <p class="text-xl text-gray-300 mb-6">
+        This project provides an easy way to generate a Discord timestamp. It's simple, fast, and convenient to use.
+    </p>
+    <div class="flex justify-center mb-6">
+        <img src="https://i.imgur.com/8xnRzDd.png" alt="Project Preview" class="rounded-lg shadow-lg w-full max-w-2xl border border-gray-600 transition-transform duration-500 hover:scale-110">
+    </div>
+    <a href="https://r.3v.fi/discord-timestamps/" target="_blank" 
+        class="flex items-center justify-center gap-3 text-blue-400 hover:text-blue-300 text-xl font-medium transition-colors">
+        Visit Project
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" 
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path>
+            <path d="m21 3-9 9"></path>
+            <path d="M15 3h6v6"></path>
+        </svg>
+    </a>
+</div>
+
 
 <div id="custom-alert" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
     <div class="bg-gray-800 p-5 rounded-lg shadow-lg text-white w-80 text-center relative">
