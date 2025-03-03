@@ -274,7 +274,10 @@ updateClock();
                 </div>
             </a>
             
-<button id="open-profile" class="relative flex items-center gap-2 bg-[#111827] rounded-lg px-3 py-2 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <button id="open-profile" 
+            class="relative flex items-center gap-2 bg-[#111827] rounded-lg px-3 py-2 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl 
+            before:absolute before:inset-0 before:rounded-lg before:border-2 before:border-transparent before:transition-all before:duration-300 before:ease-in-out 
+            hover:before:border-[#5865F2] hover:before:shadow-[0_0_10px_#5865F2]">
     <div class="relative w-12 h-12">
         <img id="button-avatar" class="rounded-full w-full h-full border-2 border-gray-700 shadow-md" 
             src="https://cdn.discordapp.com/avatars/225349654974431232/ebeb8eb4ec4988ab99754f3f7dc44c1f.webp?size=1024" 
@@ -311,6 +314,9 @@ updateClock();
                     <img class="rounded-full w-full h-full border-2 border-gray-700" 
                          src="https://cdn.discordapp.com/avatars/225349654974431232/ebeb8eb4ec4988ab99754f3f7dc44c1f.webp?size=1024" 
                          alt="Avatar">
+                         <img class="absolute inset-0 w-full h-full" 
+                        src="https://cdn.discordapp.com/avatar-decoration-presets/a_89cd445201a0c6c64d46876503d0e90e.png?size=128&passthrough=false" 
+                        alt="Avatar Decoration">
                     <svg class="absolute bottom-0 right-0 w-4 h-4 border-2 border-gray-800 rounded-full" viewBox="0 0 10 10">
                         <rect id="status-indicator" width="10" height="10" x="0" y="0" fill="#747f8d"></rect>
                     </svg>
