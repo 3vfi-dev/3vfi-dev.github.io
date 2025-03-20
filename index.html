@@ -852,6 +852,23 @@ function updateClockVisibility() {
     updateDiscordStatus();
     setInterval(updateDiscordStatus, 1000);
 </script>
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const currentDate = new Date();
+        const targetDate = new Date("2025-03-20T13:59:00");
+        const hypeSquadBadge = document.querySelector('img[alt="HypeSquad Badge"]');
+        const nitroBadge = document.querySelector('img[alt="Nitro Badge"]');
+
+        if (currentDate >= targetDate) {
+            if (hypeSquadBadge) {
+                hypeSquadBadge.src = "https://cdn.discordapp.com/badge-icons/ec92202290b48d0879b7413d2dde3bab.png"; 
+            }
+            if (nitroBadge) {
+                nitroBadge.src = "https://cdn.discordapp.com/badge-icons/0d61871f72bb9a33a7ae568c1fb4f20a.png"; 
+            }
+        }
+    });
+</script>
   
 </body>
 </html>
