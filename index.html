@@ -233,14 +233,39 @@ updateClock();
     <div id="main-content" class="w-full flex flex-col items-center text-center max-w-2xl hide-on-profile">
         <div class="fixed top-0 left-0 w-full p-4 text-center z-10 backdrop-blur-md bg-black/30">
             <div class="flex justify-center space-x-4">
-                <button onclick="toggleAboutMe()" class="bg-black text-gray-200 border border-gray-700 px-4 py-2 rounded transition duration-300 hover:bg-gray-800 hover:scale-105 hover:shadow-lg hover:shadow-gray-700 font-mono hide-on-profile">
+                <button onclick="toggleAboutMe()" 
+                    class="group relative bg-black/30 backdrop-blur-md text-gray-400 px-4 py-2 rounded-lg border border-gray-700/50 
+                    transition-all duration-300 hover:text-white hover:border-gray-500 hover:bg-black/50 
+                    flex items-center gap-2 text-sm font-mono hide-on-profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
                     About Me
+                    <div class="absolute inset-0 rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                         style="background: linear-gradient(45deg, rgba(88,101,242,0.1) 0%, rgba(88,101,242,0) 100%);"></div>
                 </button>
-                <button onclick="toggleHobbies()" class="bg-black text-gray-200 border border-gray-700 px-4 py-2 rounded transition duration-300 hover:bg-gray-800 hover:scale-105 hover:shadow-lg hover:shadow-gray-700 font-mono hide-on-profile">
+                <button onclick="toggleHobbies()" 
+                    class="group relative bg-black/30 backdrop-blur-md text-gray-400 px-4 py-2 rounded-lg border border-gray-700/50 
+                    transition-all duration-300 hover:text-white hover:border-gray-500 hover:bg-black/50 
+                    flex items-center gap-2 text-sm font-mono hide-on-profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 17L9 11M15 13L9 11M9 11V21M21 7L15 13M15 13V3"/>
+                    </svg>
                     Hobbies
+                    <div class="absolute inset-0 rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                         style="background: linear-gradient(45deg, rgba(88,101,242,0.1) 0%, rgba(88,101,242,0) 100%);"></div>
                 </button>
-                <button onclick="toggleWebsite()" class="bg-black text-gray-200 border border-gray-700 px-4 py-2 rounded transition duration-300 hover:bg-gray-800 hover:scale-105 hover:shadow-lg hover:shadow-gray-700 font-mono hide-on-profile">
+                <button onclick="toggleWebsite()" 
+                    class="group relative bg-black/30 backdrop-blur-md text-gray-400 px-4 py-2 rounded-lg border border-gray-700/50 
+                    transition-all duration-300 hover:text-white hover:border-gray-500 hover:bg-black/50 
+                    flex items-center gap-2 text-sm font-mono hide-on-profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 0 1 9-9"></path>
+                    </svg>
                     Project
+                    <div class="absolute inset-0 rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                         style="background: linear-gradient(45deg, rgba(88,101,242,0.1) 0%, rgba(88,101,242,0) 100%);"></div>
                 </button>                
             </div>
         </div>
@@ -587,16 +612,20 @@ function toggleWebsite() {
 
 function updateClockVisibility() {
     let clockBox = document.getElementById("clock-box");
+    let legalButton = document.querySelector(".fixed.bottom-4.left-4.z-50");
 
     let aboutMeVisible = !document.getElementById("about-me").classList.contains("hidden");
     let hobbiesVisible = !document.getElementById("hobbies").classList.contains("hidden");
     let websiteVisible = !document.getElementById("website").classList.contains("hidden");
+    let legalVisible = !document.getElementById("legal").classList.contains("hidden");
     let profileVisible = !document.getElementById("profile-popup").classList.contains("hidden");
 
-    if (aboutMeVisible || hobbiesVisible || websiteVisible || profileVisible) {
-        clockBox.classList.add("hidden"); 
+    if (aboutMeVisible || hobbiesVisible || websiteVisible || legalVisible || profileVisible) {
+        clockBox.classList.add("hidden");
+        legalButton.classList.add("hidden");
     } else {
-        clockBox.classList.remove("hidden"); 
+        clockBox.classList.remove("hidden");
+        legalButton.classList.remove("hidden");
     }
 }
 const textArray = [
@@ -887,5 +916,95 @@ const textArray = [
     });
 </script>
   
+<div id="legal" class="hidden mt-8 p-6 sm:p-12 bg-black/30 backdrop-blur-md text-white rounded-3xl shadow-lg transition-all duration-300 transform hover:scale-110 hover:shadow-xl border border-gray-700">
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl sm:text-3xl font-bold flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" sm:width="28" sm:height="28" viewBox="0 0 24 24" fill="none" 
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+            class="text-blue-400 cursor-pointer" onclick="toggleLegal()">
+            <path d="M9 6l6 6-6 6"/>
+            </svg>
+            Legal Notice
+        </h2>
+    </div>
+    <div class="border-t border-gray-700 mb-6"></div>
+    <div class="text-left space-y-6">
+        <div>
+            <h3 class="text-lg font-semibold" style="color: #5865f2;">Website Editor:</h3>
+            <p> 3v.dev - bptisteg@gmail.com</p>
+        </div>
+        <div>
+            <h3 class="text-lg font-semibold" style="color: #5865f2;">Hosting Provider:</h3>
+            <p>GitHub, Inc.</p>
+            <p>88 Colin P Kelly Jr St, San Francisco, CA 94107, United States</p>
+            <p>
+            </p>
+        </div>
+        <div>
+            <h3 class="text-lg font-semibold" style="color: #5865f2;">Intellectual Property:</h3>
+            <p>All content on this website (including but not limited to text, images, logos) is the property of 3v, unless otherwise stated. Any reproduction is strictly prohibited without authorization.</p>
+        </div>
+        <div>
+            <h3 class="text-lg font-semibold" style="color: #5865f2;">Data Protection:</h3>
+            <p>No personal data is collected by this website.</p>
+        </div>
+    </div>
+    <div class="flex justify-center mt-8">
+        <button onclick="toggleLegal()" 
+            class="bg-gray-800 text-white px-6 py-2 rounded-lg shadow-lg transition duration-300 
+                   hover:bg-gray-700 hover:scale-105 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" 
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+            Back
+        </button>
+    </div>
+</div>
+
+<script>
+function toggleLegal() {
+    document.getElementById('legal').classList.toggle('hidden');
+    document.getElementById('about-me').classList.add('hidden');
+    document.getElementById('hobbies').classList.add('hidden');
+    document.getElementById('website').classList.add('hidden');
+    document.getElementById('main-content').classList.toggle('hidden');
+    updateClockVisibility();
+}
+
+function updateClockVisibility() {
+    let clockBox = document.getElementById("clock-box");
+    let legalButton = document.querySelector(".fixed.bottom-4.left-4.z-50");
+
+    let aboutMeVisible = !document.getElementById("about-me").classList.contains("hidden");
+    let hobbiesVisible = !document.getElementById("hobbies").classList.contains("hidden");
+    let websiteVisible = !document.getElementById("website").classList.contains("hidden");
+    let legalVisible = !document.getElementById("legal").classList.contains("hidden");
+    let profileVisible = !document.getElementById("profile-popup").classList.contains("hidden");
+
+    if (aboutMeVisible || hobbiesVisible || websiteVisible || legalVisible || profileVisible) {
+        clockBox.classList.add("hidden");
+        legalButton.classList.add("hidden");
+    } else {
+        clockBox.classList.remove("hidden");
+        legalButton.classList.remove("hidden");
+    }
+}
+</script>
+
+<div class="fixed bottom-4 left-4 z-50 hide-on-profile">
+    <button onclick="toggleLegal()" 
+        class="group relative bg-black/30 backdrop-blur-md text-gray-400 px-4 py-2 rounded-lg border border-gray-700/50 
+        transition-all duration-300 hover:text-white hover:border-gray-500 hover:bg-black/50 
+        flex items-center gap-2 text-sm font-mono">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        Legal Notice
+        <div class="absolute inset-0 rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+             style="background: linear-gradient(45deg, rgba(88,101,242,0.1) 0%, rgba(88,101,242,0) 100%);"></div>
+    </button>
+</div>
+
 </body>
 </html>
